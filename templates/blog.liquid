@@ -1,0 +1,80 @@
+<section id="blog">
+    {% if settings.breadcrumbs_enabled == true %}
+        {% include "bread-crumbs" %}<br />
+    {% endif %}
+    <header>
+        <h2>{{ blog.title }}</h2>
+    </header>
+    <div class="row">
+    <section class="{% if settings.blog_sidebar_enabled == true %}span-two-thirds{% else %}span16{% endif %}">
+        {% paginate blog.articles by 5 %}
+            {% for article in blog.articles %}
+            <article class="article {% if forloop.first %}first{% endif %}">
+                <div class="row">
+                    <div class="span7">
+                        <a name="article-{{ article.id }}"></a>
+                        <h2 class="blog-post-title"><a href="{{ article.url }}">{{ article.title }}</a></h2>
+                        <div class="blog-post-meta">
+                            <p class="date">{{ article.created_at | date: "%Y.%m.%d" }}</p>
+                            <p class="by">by {{ article.author }}</p>
+                            {% if blog.comments_enabled? %}
+                            <p class="comments"><a class="comments" href="{{article.url}}#comments">Comments ({{ article.comments_count }})</a></p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="span9">
+                        <div class="blog-excerpt">
+                        {% if article.excerpt == blank %}
+                        {{ article.content | truncatewords: 100 }}
+                        {% else %}
+                        {{ article.excerpt }}
+                        {% endif %}
+                        </div>
+                        <div class="blog-details">
+                            <p><a href="{{ article.url }}">Continue Reading</a></p>
+                        </div>
+                    </div>
+                </div><!--// .row //-->
+            </article>
+            {% endfor %}
+            {% include "pagination" %}
+        {% endpaginate %}
+    </section>
+    {% if settings.blog_sidebar_enabled == true %}
+    <aside id="sidebar" class="span-one-third">
+        <div class="row">
+            {% if blog.all_tags.size > 0 %}
+            {% if settings.blogtag_widget_visible == true %}
+            <section class="widget span16">
+                <header>
+                    <h2>{{ settings.blogtag_widget_title }}</h2>
+                </header>
+                <article>
+                <div class="meta tags">
+                {% capture url %} {{ shop.url }}/blogs/{{ blog.handle }}/tagged/all {% endcapture %}
+                <ul class="blogtags">{% if blog.all_tags.size > 0 %}<li>{{ 'All' | link_to: url }}</li>{% endif %}{% for tag in blog.all_tags %}<li>{{ tag | highlight_active_tag | link_to_tag: tag }}</li>{% endfor %}</ul>
+                </div>
+                </article>
+            </section>
+            {% endif %}
+            {% endif %}
+            {% if settings.blog_text_widget_visible == true %}
+            <section class="widget span16">
+                 <header>
+                    <h2>{{ settings.blog_text_widget_title }}</h2>
+                </header>
+                <article>
+                    <p>{{ settings.blog_text_widget_content }}</p>
+                </article>
+            </section>
+            {% endif %}
+            {% if settings.blog_subscribe_visible == true %}
+            <section class="widget span16">
+                <a href="{{ shop.url }}/blogs/{{ blog.handle }}.atom" class="subscribe"><span class="icons icon_subscribe"></span></a>
+            </section>
+            {% endif %}
+        </div><!--// .row //-->
+    </aside>
+    {% endif %}
+</div>
+</section>

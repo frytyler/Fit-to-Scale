@@ -1,0 +1,99 @@
+<!--begin left-column--> 
+<section id="blog">
+
+	<div class="blog-post">
+	<article class="article">
+        <div class="row">
+              <div class="span5">
+                <h2 class="blog-post-title">{{ article.title }}</h2>
+          	    <div class="blog-post-meta">
+                    <p class="date">{{ article.published_at | date: "%Y.%m.%d" }}</p>
+                    <p class="by">by {{ article.author }}</p>
+                </div>
+                {% if article.tags.size > 0 %}
+                <div class="meta tags">
+                    <p>Tags: {% for tag in article.tags %}{{ tag | link_to_tag: tag }}{% if forloop.last == false %}{% if forloop.length > 1 %},{% endif %}{% endif %}{% endfor %}</p>
+                </div>
+                {% endif %}
+                <div class="meta nextprev">
+                {% if blog.previous_article %}
+                		{{ "&larr; previous post" | link_to: blog.previous_article }} |
+            	{% endif %}
+                {% if blog.next_article %}
+                		{{ "next post &rarr;" | link_to: blog.next_article }}
+                {% endif %}
+                </div>
+                <div class="subscribe"><a href="{{ shop.url }}/blogs/{{ blog.handle }}.atom" class="subscribe"><span class="icons icon_subscribe"></span></a></div>
+		    </div>
+            <div class="span11">
+                <div class="blog-excerpt">
+      	        	{{ article.content }}
+      		    </div>
+            </div>
+        </div>
+		<div style="clear: both"></div>
+    </article>
+
+{% if blog.comments_enabled? %}
+{% paginate article.comments by 10 %}
+<div id="comments">
+  <h4>Comments</h4>
+  {% if article.comments == empty %}
+    <p class="no_comments"><em>There are no comments yet</em></p>
+  {% else %}
+    <ul>
+    {% for comment in article.comments %}
+        <li>
+            <article class="comment">
+                <h2>{{ comment.author }} <small>says...</small></h2>
+                <div class="comment-content">
+                    {{ comment.content }}
+                </div>
+        	    <div class="comment-details">
+        		    <p>Posted by {{ comment.author }} on {{ comment.created_at | date: "%B %d, %Y" }}</p>
+                </div>	
+            </article>
+        </li>
+    {% endfor %}
+    </ul>
+    {% include "pagination" %}
+  {% endif %}
+  {% form article %}
+    <h4>Leave a comment</h4>
+    {% if form.posted_successfully? %}
+      {% if blog.moderated? %}
+        <div class="alert alert-success">
+            <h5 class="alert-heading">Successfully posted your comment.</h5>
+            <p>It will have to be approved by the blog owner first before showing up.</p>
+        </div>
+      {% else %}
+        <div class="alert alert-success">Successfully posted your comment.</div>
+      {% endif %}
+    {% endif %}
+    {% if form.errors %}
+      <div class="alert alert-danger"><p>Not all the fields have been filled out correctly!</p></div>
+    {% endif %}
+    <div class="row comment_form">
+        <div class="span6">
+            <label for="comment_author">Your Name:</label>
+            <input type="text" id="comment_author" class="span16 {% if form.errors contains 'author' %}input-error{% endif %}" name="comment[author]" value="{{ form.name }}" placeholder="John Doe" />
+            <label for="comment_email">Email:</label>
+            <input type="email" id="comment_email" class="span16 {% if form.errors contains 'email' %}input-error{% endif %}" name="comment[email]" value="{{ form.email }}" placeholder="john@example.com" />
+        </div>
+        <div class="span10">
+            <label for="comment_body">Your Comment:</label>
+            <textarea id="comment_body" class="span16 {% if form.errors contains 'body' %}input-error{% endif %}" name="comment[body]">{{ form.body }}</textarea>
+        </div>
+    </div>
+    {% if blog.moderated? %}
+        <p class="hint">Comments have to be approved before showing up</p>
+    {% endif %}
+        <button type="submit" class="btn btn-primary">Post Comment</button>
+  {% endform %}
+</div>
+{% endpaginate %}
+{% endif %}
+
+</div>
+
+</section>

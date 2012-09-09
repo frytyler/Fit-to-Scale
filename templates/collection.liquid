@@ -1,0 +1,91 @@
+{% paginate collection.products by 16 %}
+{% assign layout = settings.collection_layout %}
+{% if page.handle == "collections" %}
+asdf
+{% endif %}
+<section id="collection">
+	{% if settings.breadcrumbs_enabled == true %}
+        {% include "bread-crumbs" %}<br />
+    {% endif %}
+    <header>
+	    <h2>{{ collection.title }}</h2>
+	</header>
+	{% if settings.collection_product_tags_visible == true %}
+    <div class="meta tags">
+        {% capture url %} {{ shop.url }}/collections/all {% endcapture %}
+        <p>{% if collection.all_tags.size > 0 %}Tags: {{ 'All' | link_to: url }},{% endif %}{% for tag in collection.all_tags %}{{ tag | highlight_active_tag | link_to_tag: tag }}{% if forloop.last == false %}{% if forloop.length > 1 %},{% endif %}{% endif %}{% endfor %}</p>
+	</div>
+    {% endif %}
+	{% if settings.collection_description_visible == true %}
+        {% if collection.description %}
+    	<div class="description">
+            <p>{{ collection.description }}</p>
+    	</div>
+    	{% endif %}
+    {% endif %}
+	{% if collection.products.size == 0 %}
+		<strong>No products found in this collection.</strong>
+		{% else %}		
+        <div class="row">
+        {% for product in collection.products %}
+    	    {% capture rowmid %}{% cycle 1,2 %}{% endcapture %}
+            {% if layout == "span-one-third" %}
+                {% capture rowend %}{% cycle 1,2,3 %}{% endcapture %}
+            {% else %}
+               {% capture rowend %}{% cycle 1,2,3,4 %}{% endcapture %}
+            {% endif %}
+                <article class="product {{ layout }}">
+                {% if product.compare_at_price_max > product.price %}
+        			<div class="sale">
+						<div class="sale_flag">
+							<span class="sale_price left">{{ product.price_min | money }}</span>
+							<span class="sale_divider left"></span>
+							<span class="sale_txt left">Sale</span>
+							<div class="clr"></div>
+						</div>
+					</div>                                
+                {% endif %}
+				  <div class="product_wrap">
+						<a href="{{ product.url }}" title="{{ product.title }}">
+							<img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ product.title | escape }}" />
+						</a>
+						<div class="title_price">
+							<h3>{{ product.title }}</h3>
+                            
+                            {% if product.compare_at_price_max > product.price %}
+                            <span class="price old_price right">{{ product.compare_at_price_max | money }}</span>
+                            {% else %}
+                            <span class="price right">{{ product.price | money }}</span>  
+                            {% endif %}
+							<div class="clr"></div>
+						</div>
+						<div class="details">
+							<a href="{{ product.url }}">
+                                <h3>{{ product.title }}</h3>
+							    <p>{{ product.description | truncatewords: 15 | strip_html }}</p>
+                            </a>
+                            <div class="btn-group addtocart right">
+                                <form action="/cart/add" method="post">
+                                <input type="hidden" id="{{ variant.id }}" name="id" value="{{ product.variants[0].id }}" />
+                                <button type="submit" name="add" class="btn btn-primary btn-addtocart">Add to Cart</button>
+                                <button type="submit" name="add" class="btn btn-primary btn_price">{{ product.price | money }}</button>
+                                </form>
+                            </div>
+							<div class="clr"></div>
+						</div>
+					</div>
+				</article>
+                
+                {% if layout == "span-one-third" %}
+                    {% if rowend == "3" %}<div class="clearspn3 clr"></div>{% endif %}
+                {% else %}
+                   {% if rowend == "4" %}<div class="clr"></div>{% endif %} 
+                {% endif %}
+                {% if rowmid == "2" %}<div class="clearspn clr"></div>{% endif %}
+				{% endfor %}
+	        </div>
+			{% include "pagination" %}
+	{% endif %}
+
+</section><!-- // #collection -->
+{% endpaginate %}

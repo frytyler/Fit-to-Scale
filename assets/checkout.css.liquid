@@ -1,0 +1,7 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+body { {% if settings.bg_image_visible == true %}background:url({{ 'bg_image.png' | asset_url }}) {{ settings.bg_repeat }};{% else %}background:{{ settings.bg_color }};{% endif %} }
+#logo { background:url({{ 'shoplogo.png' | asset_url }}) center no-repeat; width:100%; min-height:200px; display:block; }
+#tagline { display:none; }

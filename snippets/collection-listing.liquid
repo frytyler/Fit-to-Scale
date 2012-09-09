@@ -1,0 +1,28 @@
+<section id="collections-listing">
+  <header>
+    <h2>Product Collections</h2>
+  </header>
+  <div class="row">
+  {% for collection in collections %}
+  {% unless collection.handle == 'frontpage' %}
+    <article class="product span4">
+    {% capture collection_title %}{{ collection.title | escape }}{% endcapture %}
+      <div class="collection">
+        <div class="product_wrap">
+          <a href="{{ collection.url }}" title="Browse our {{ collection_title }} collection">{% if collection.image %}
+            {{ collection.image.src | collection_img_url: 'large' | img_tag: collection_title }}{% else %}
+            {{ collection.products.first.featured_image | product_img_url: 'large' | img_tag: collection_title }}{% endif %}
+          </a>
+        </div>
+        <div class="title_price">
+          <a href="{{ collection.url }}" title="Browse our {{ collection_title }} collection">
+              <h3>{{ collection.title }}</h3>
+              <span class="price right">{{ collection.all_products_count }} {{ collection.all_products_count | pluralize: 'item', 'items' }}</span>  
+          </a>
+        </div>
+      </div>
+    </article>
+  {% endunless %}
+  {% endfor %}
+  </div>
+</section>

@@ -1,0 +1,76 @@
+<div id="full-width">
+<section id="cart">
+	<header>
+	    <h2>My Cart</h2>
+    </header>
+    {% if cart.item_count > 0 %}
+	<form action="/cart" method="post" name="cartform">
+	
+    <div class="cart_labels hidden-phone">
+        <div class="row">
+        <div class="span8">
+            <h3>Product</h3>
+        </div>
+        <div class="span2">
+            <h3>Price</h3>
+        </div>
+        <div class="span2">
+            <h3>Quantity</h3>
+        </div>
+        <div class="span4">
+            <h3>Total</h3>
+        </div>
+        </div>
+    </div>
+    <div class="cart_items">
+        {% for item in cart.items %}
+        <div class="row cart_item">
+            <div class="span4">
+                <figure><a href="{{ item.product.url | within: collections.all }}"><img src="{{ item.product.images[0] | product_img_url: "large" }}" alt="{{ item.title | escape }}" /></a></figure>
+            </div>
+            <div class="span4 cart_item_details">
+                <h3 class="title"><a href="{{ item.product.url | within: collections.all }}">{{ item.title | escape }}</a><span class="price">{{ item.price | money }}</span></h3>
+                <div class="hidden-single">{{ item.product.description | truncatewords : 20 }}</div>
+            </div>
+            <div class="span2 cart_item_price">
+                {{ item.price | money }}
+            </div>
+            <div class="span2">
+                <input type="number" class="qty" name="updates[{{ item.id }}]" id="updates_{{ item.id }}" value="{{ item.quantity }}" />
+            </div>
+            <div class="span2">
+                <strong class="total_line_price">{{ item.line_price | money }} <span class="remove_btn"><a href="/cart/change/{{ item.variant.id }}?quantity=0" class="btn">×</a></span></strong>
+            </div>
+            <div class="span2">
+                <a href="/cart/change/{{ item.variant.id }}?quantity=0" class="btn remove_btn">×</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+	<div id="complete">
+		<div class="row">
+            {% if settings.cart_notes %}
+        		<div id="notes" class="span8">
+        			<label for="note">Tell us about any special instructions:</label>
+        			<textarea name="note" id="note" class="span16 note">{{ cart.note }}</textarea>
+        		</div>
+        	{% endif %}
+    		<div id="total" class="{% if settings.cart_notes %}span8{% else %}span16{% endif %}">
+    			<div class="cart-total"><h3>Total: <span>{{ cart.total_price | money }}</span></h3></div>
+    			<div id="checkout" class="clear">
+    				<input type="submit" class="btn btn-primary" alt="Checkout" name="checkout" value="Check Out"/>
+    				<input type="submit" class="btn btn-secondary" alt="Update" name="update" class="update" value="Update" />
+    			    <div class="additional-checkout-buttons" style="">{% if additional_checkout_buttons %}{{ content_for_additional_checkout_buttons | google_button_options: 'transparent' }}{% endif %}</div>
+    			</div>
+    			<!-- end checkout -->
+    		</div>
+    		<!-- end total -->
+		</div>
+	</div>
+	<!-- end complete-->
+</form>{% else %}
+<p id="empty">Your shopping cart is empty. <a href="/collections/all">Continue shopping...</a></p>{% endif %}
+
+</div>
+
+</section>

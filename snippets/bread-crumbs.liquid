@@ -1,0 +1,21 @@
+<ul class="breadcrumb">
+  <li><a href="/" title="back to the frontpage">Home</a> <span class="divider">/</span></li>
+  {% case template %}  
+  {% when "product" %}
+    {% if collection %}            
+        <li>{{ collection.title | link_to: collection.url }} <span class="divider">/</span></li>
+    {% endif %}
+        <li>{{ product.title | link_to: product.url }} <span class="divider">/</span></li>
+  {% when "collection" %}
+        <li>{{ collection.title | link_to: collection.url }} <span class="divider">/</span></li>
+  {% when "blog" %}
+        <li>{{ blog.title | link_to: blog.url }} <span class="divider">/</span></li>
+  {% when "page" %}
+        <li>{{ page.title | link_to: page.url }} <span class="divider">/</span></li>
+  {% when "article" %}
+        <li>{{ blog.title | link_to: blog.url }} <span class="divider">/</span></li>
+        <li>{{ article.title | link_to: article.url }} <span class="divider">/</span></li>
+  {% when "cart" %}
+        <li><a href="/cart">Shopping Cart</a> <span class="divider">/</span></li>
+  {% endcase %}          
+</ul>

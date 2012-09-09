@@ -1,0 +1,82 @@
+<!-- Solution brought to you by Caroline Schnapp -->
+<!-- See this: http://wiki.shopify.com/Related_Products -->
+{% assign number_of_related_products_to_show = settings.product_related_products_count %}
+{% assign image_size = 'grande' %}
+{% assign heading = settings.product_related_products_title %}
+{% assign layout = settings.product_related_products_layout %}
+{% capture number_of_related_products_to_fetch %}{{ number_of_related_products_to_show | plus: 1 }}{% endcapture %}
+{% if collection == null or collection.handle == 'frontpage' or collection.handle == 'all' %}
+{% assign found_a_collection = false %}
+{% for c in product.collections %}
+  {% if found_a_collection == false and c.handle != 'frontpage' and c.handle != 'all' and c.all_products_count > 1 %}
+    {% assign found_a_collection = true %}
+    {% assign collection = c %}
+  {% endif %}
+{% endfor %}
+{% endif %}
+
+{% if collection %}
+<section id="feature_products">
+    <header>
+        <h2>{{ heading }}</h2>
+    </header>
+    <div class="row">				
+		{% assign current_product_found = false %}
+        {% for prod in collection.products limit: number_of_related_products_to_fetch %}
+        {% if prod.title == product.title %}
+           {% assign current_product_found = true %}
+        {% else %}
+           {% unless current_product_found == false and forloop.last %}
+        <article class="product {{ layout }}">
+                {% if prod.compare_at_price_max > prod.price %}
+            		<div class="sale">
+						<div class="sale_flag">
+							<span class="sale_price left">{{ prod.price_min | money }}</span>
+							<span class="sale_divider left"></span>
+							<span class="sale_txt left">Sale</span>
+							<div class="clr"></div>
+						</div>
+					</div>                                
+                {% endif %}
+				  <div class="product_wrap">
+						<a href="{{ prod.url | within: collection }}" title="{{ prod.title | escape }}">
+                            {{ prod.featured_image | product_img_url: image_size | img_tag }}
+                        </a>
+						<div class="title_price">
+							<h3>{{ prod.title }}</h3>
+                            
+                            {% if prod.compare_at_price_max > prod.price %}
+                            <span class="price old_price right">{{ prod.compare_at_price_max | money }}</span>
+                            {% else %}
+                            <span class="price right">{{ prod.price | money }}</span>  
+                            {% endif %}
+							<div class="clr"></div>
+						</div>
+						<div class="details">
+							<a href="{{ prod.url }}">
+                                <h3>{{ prod.title }}</h3>
+							    <p>{{ prod.description | truncatewords: 15 | strip_html }}</p>
+                            </a>
+                            <div class="btn-group addtocart right">
+                                <form action="/cart/add" method="post">
+                                <input type="hidden" id="{{ variant.id }}" name="id" value="{{ prod.variants[0].id }}" />
+                                <button type="submit" name="add" class="btn btn-primary btn-addtocart">Add to Cart</button>
+                                <button type="submit" name="add" class="btn btn-primary btn_price">{{ prod.price | money }}</button>
+                                </form>
+                            </div>
+							<div class="clr"></div>
+						</div>
+					</div>
+				</article>
+                {% cycle '','<div class="clearspn clr"></div>' %}
+                {% if layout == "span-one-third" %}
+                    {% cycle '','','<div class="clearspn3 clr"></div>' %}
+                {% else %}
+                   {% cycle '','','','<div class="clr"></div>' %}
+                {% endif %}
+               {% endunless %}
+            {% endif %}
+            {% endfor %}
+    </div>
+</section>
+{% endif %}

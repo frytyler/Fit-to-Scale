@@ -1,0 +1,41 @@
+<section id="contact">
+    <header>
+        <h2>{{ page.title }}</h2>
+    </header>
+{{ page.content }}
+
+{% form 'contact' %}
+
+{% if form.posted_successfully? %}
+<div class="alert alert-success">
+  <p>Thanks for contacting us! We'll get back to you as soon as possible.</p>
+</div>
+{% endif %}
+
+{% if form.errors %}
+<div class="alert alert-danger">
+  <!-- {{ form.errors.size }} or {{ form.errors | size }} -->
+  <p>Oops, sorry. We were unable to submit your inquiry because it contained {{ form.errors | size | pluralize: 'an error', 'a few errors' }}. Please correct the following and submit again:</p>
+  {% for field in form.errors %}
+    <p>The {{ field | capitalize | replace: 'Body', 'Message' }} field {{ form.errors.messages[field] }}.</p>
+  {% endfor %}
+</div>
+{% endif %}
+<div class="row form">
+    <div class="span6 formgroup_1">
+        <label>Your Name:</label>
+        <input type="text" id="contactFormName" class="span16" name="contact[name]" value="{{ form.name }}" placeholder="John Doe" />
+        <label>Email:</label>
+        <input type="email" id="contactFormEmail" class="span16" name="contact[email]" value="{{ form.email }}" placeholder="john@example.com" />
+        <label>Phone Number:</label>
+        <input type="telephone" id="contactFormTelephone" class="span16" name="contact[phone]" placeholder="555-555-1234" />
+    </div>
+    <div class="span10 formgroup_2">
+        <label>Message:</label>
+        <textarea id="contactFormMessage" class="span16" name="contact[body]" placeholder="Your Message">{{ form.body }}</textarea>   	
+        <input type="submit" class="btn btn-primary right" id="contactFormSubmit" value="Send" />
+</div><!-- span10 --> 
+</div>
+{% endform %}
+	
+</section><!-- // #contact -->

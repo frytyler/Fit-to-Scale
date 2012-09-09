@@ -1,0 +1,1133 @@
+<fieldset>
+<legend>General Theme Settings</legend>
+	<table>
+        <tr>
+        	<td><label for="shoplogo_enabled">Enable Custom Logo?</label></td>
+			<td><input type="checkbox" id="shoplogo_enabled" name="shoplogo_enabled" value="1" /></td>
+		</tr>
+        <tr>
+    		<td><label for="shoplogo">Upload an image <br />(<strong>Note:</strong> for best fit the logo shouldn't be any larger then 940px wide and 200px high)</label></td>
+			<td><input type="file" id="shoplogo" name="shoplogo.png" data-max-width="940" data-max-height="200" /></td>
+    	</tr>
+        <tr>
+    		<td><label for="shoplogo_position">Logo Position</label></td>
+			<td>
+                <input type="radio" name="shoplogo_position" id="shoplogo_position_left" value="left" />
+                <label for="shoplogo_position_left">Left</label>
+                <input type="radio" name="shoplogo_position" id="shoplogo_position_center" value="center" />
+                <label for="shoplogo_position_center">Center</label>
+            </td>
+    	</tr>
+        <tr>
+            <td><label for="mainmenu_linklist">Choose your Main Navigation</label></td>
+            <td><select id="mainmenu_linklist" class="linklist" name="mainmenu_linklist" /></td>
+        </tr>
+        <tr>
+            <td><label for="breadcrumbs_enabled">Enable Breadcrumbs on Product, Collection, Blog Pages</label></td>
+			<td><input type="checkbox" id="breadcrumbs_enabled" name="breadcrumbs_enabled" value="1" checked="checked" /></td>
+		</tr>
+        <tr>
+            <td><label for="search_subcribe_bg">Opacity of Search and Subcribe input fields (0.1 = 10%)</label></td>
+    		<td><input type="text" id="search_subcribe_bg" name="search_subcribe_bg" /></td>
+		</tr>        
+        <tr>
+            <td><h3>Site Background Settings:</h3></td>
+        </tr>
+        <tr>
+        	<td><label for="bg_image">Upload a background image <br />(Make sure to select '<strong>Custom</strong>' under Background image if you upload your own.)</label></td>
+			<td><input type="file" id="bg_image" name="background-user-uploaded.jpg" /></td>
+    	</tr>
+        <tr>
+        	<td><label for="body_bg_img">Background image</label></td>
+			<td>
+				<select name="body_bg_img" id="body_bg_img">
+					<option value="background-user-uploaded.jpg">Custom</option>
+					<option value="none">No background image (solid colour)</option>
+					<optgroup label="Truffle Love">
+						<option value="variant_truffle_light_bg.png" selected="selected">Default (light)</option>
+						<option value="variant_truffle_light2_bg.png">Light 2</option>
+					</optgroup>
+                    <optgroup label="Hammond Shoes">
+                        <option value="variant_lightlinen_bg.png">Light Linen</option>
+                        <option value="variant_blacklinen_bg.png">Black Linen</option>
+                    </optgroup>
+                    <optgroup>
+                        <option value="variant_shattered_bg.png">Shattered</option>
+                        <option value="variant_denim_bg.png">Grunge Denim</option>
+                    </optgroup>
+				</select>
+			</td>
+		</tr>
+        <tr>
+            <td><label for="bg_repeat">Repeat background texture?</label></td>
+    		<td>
+                <select id="bg_repeat" name="bg_repeat">
+                    <option value="repeat">Repeat</option>
+                    <option value="repeat-x">Repeat x-axis</option>
+                    <option value="repeat-y">Repeat y-axis</option>
+                    <option value="no-repeat">No Repeat</option>
+                </select>
+            </td>    
+        </tr>
+        <tr>
+          <td><label for="bg_color">Background Color:</label></td>
+          <td><input id="bg_color" name="bg_color" class="color" value="#e8e8e8" /></td>
+        </tr>        
+        <tr>
+            <td><h3>Footer Background Settings:</h3></td>
+        </tr>
+        <tr>
+        	<td><label for="bg_footer_image">Upload a footer background image <br />(Make sure to select '<strong>Custom</strong>' under Background image if you upload your own.)</label></td>
+			<td><input type="file" id="bg_footer_image" name="bg_footer_image.png" /></td>
+    	</tr>
+        <tr>
+            <td><label for="bg_footer_bg_image">Background image</label></td>
+			<td>
+				<select name="bg_footer_bg_image" id="bg_footer_bg_image">
+					<option value="background-footer-user-uploaded.jpg">Custom</option>
+					<option value="none">No background image (solid colour)</option>
+					<optgroup label="Truffle Love">
+						<option value="variant_truffle_footer_light_bg.png" selected="selected">Default (light)</option>
+						<option value="variant-truffle_footer_light2_bg.png">Light 2</option>
+					</optgroup>
+                    <optgroup label="Hammond Shoes">
+                        <option value="variant_footer_lightlinen_bg.png">Light Linen</option>
+                        <option value="variant_footer_blacklinen_bg.png">Black Linen</option>
+                    </optgroup>
+                    <optgroup>
+                        <option value="variant_footer_shattered_bg.png">Shattered</option>
+                    </optgroup>
+				</select>
+			</td>
+		</tr>
+        <tr>
+            <td><label for="bg_footer_repeat">Repeat background texture?</label></td>
+    		<td>
+                <select id="bg_footer_repeat" name="bg_footer_repeat">
+                    <option value="repeat">Repeat</option>
+                    <option value="repeat-x">Repeat x-axis</option>
+                    <option value="repeat-y">Repeat y-axis</option>
+                    <option value="no-repeat">No Repeat</option>
+                </select>
+            </td>    
+        </tr>
+        <tr>
+          <td><label for="bg_footer_color">Background Color:</label></td>
+          <td><input id="bg_footer_color" name="bg_footer_color" class="color" value="#d0d0d0" /></td>
+        </tr>
+        <tr>
+            <td><h3>Site Style Settings:</h3></td>
+        </tr>
+        <tr>
+          <td><label for="general_font_color">Body Font Color:</label></td>
+          <td><input id="general_font_color" name="general_font_color" class="color" value="#555555" /></td>
+        </tr>
+        <tr>
+          <td><label for="general_textshadow_color">Body Textshadow Color:</label></td>
+          <td><input id="general_textshadow_color" name="general_textshadow_color" class="color" value="#ffffff" /></td>
+        </tr>
+        <tr>
+          <td><label for="link_color">Link Color:</label></td>
+          <td><input id="link_color" name="link_color" class="color" value="#434343" /></td>
+        </tr>
+        <tr>
+          <td><label for="link_color_hover">Link Hover Color:</label></td>
+          <td><input id="link_color_hover" name="link_color_hover" class="color" value="#d5455f" /></td>
+        </tr>
+        <tr>
+          <td><label for="link_color_active">Link Active Color:</label></td>
+          <td><input id="link_color_active" name="link_color_active" class="color" value="#d5455f" /></td>
+        </tr>
+        <tr>
+          <td><label for="widget_heading_color">Widget Heading Color:</label></td>
+          <td><input id="widget_heading_color" name="widget_heading_color" class="color" value="#019ea5" /></td>
+        </tr>
+        <tr>
+            <td><h3>Font Options</h3></td>
+        </tr>
+        <tr>
+    		<td><label for="header_font">Heading Font</label><br /><small>(site title, nav, headings)</small></td>
+			<td>
+				<select class="font" name="header_font" id="header_font">
+					<option value="'Arimo', sans-serif" selected="selected">Arimo</option>
+                    <option value="'Cabin', sans-serif">Cabin</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td><label for="general_font">Body font</label><br /><small>(used everywhere else)</small></td>
+			<td>
+				<select class="font" name="general_font" id="general_font">
+                    <option value="'Arimo', sans-serif" selected="selected">Arimo</option>
+				</select>
+			</td>
+		</tr>
+    	<tr>
+			<td><label for="home_banner_header_font">Banner Header font</label><br /><small>(used everywhere else)</small></td>
+			<td>
+				<select class="font" name="home_banner_header_font" id="home_banner_header_font">
+                    <option value="'Cabin', sans-serif" selected="selected">Cabin</option>
+				</select>
+			</td>
+		</tr>
+        <tr>
+            <td><h3>Primary Button Colors:</h3></td>
+        </tr>
+        <tr>
+          <td><label for="top_btnprimary_color"> Top of Gradient Color:</label></td>
+          <td><input id="top_btnprimary_color" name="top_btnprimary_color" class="color" value="#00AEB5" /></td>
+        </tr>
+        <tr>
+          <td><label for="bottom_btnprimary_color"> Bottom of Gradient Color:</label></td>
+          <td><input id="bottom_btnprimary_color" name="bottom_btnprimary_color" class="color" value="#019EA5" /></td>
+        </tr>
+        <tr>
+          <td><label for="hover_btnprimary_color"> Hover Color: ( Should be slightly darked the bottom gradient color )</label></td>
+          <td><input id="hover_btnprimary_color" name="hover_btnprimary_color" class="color" value="#00949b" /></td>
+        </tr>
+        <tr>
+          <td><label for="font_btnprimary_color"> Font Color</label></td>
+          <td><input id="font_btnprimary_color" name="font_btnprimary_color" class="color" value="#FFFFFF" /></td>
+        </tr>        
+        <tr>
+            <td><h3>Secondary Button Colors:</h3></td>
+        </tr>
+        <tr>
+          <td><label for="top_btnsecondary_color"> Top of Gradient Color:</label></td>
+          <td><input id="top_btnsecondary_color" name="top_btnsecondary_color" class="color" value="#DD728B" /></td>
+        </tr>
+        <tr>
+          <td><label for="bottom_btnsecondary_color"> Bottom of Gradient Color:</label></td>
+          <td><input id="bottom_btnsecondary_color" name="bottom_btnsecondary_color" class="color" value="#D35C70" /></td>
+        </tr>
+        <tr>
+          <td><label for="hover_btnsecondary_color"> Hover Color: ( Should be slightly darked the bottom gradient color )</label></td>
+          <td><input id="hover_btnsecondary_color" name="hover_btnsecondary_color" class="color" value="#CE4F5E" /></td>
+        </tr>
+        <tr>
+          <td><label for="font_btnsecondary_color"> Font Color</label></td>
+          <td><input id="font_btnsecondary_color" name="font_btnsecondary_color" class="color" value="#FFFFFF" /></td>
+        </tr>
+    </table>
+</fieldset>     
+<fieldset>
+<legend>Image Slider</legend>
+	<h2>General Slider Settings</h2>
+    <table>
+        <tr>
+    		<td><label for="home_banner">Enable homepage banner?</label></td>
+			<td><input type="checkbox" id="home_banner" name="home_banner" value="1" /></td>
+		</tr>
+        <tr>
+        	<td><label for="home_banner_slidedelay">Delay between each slide</label></td>
+			<td><input type="text" id="home_banner_slidedelay" name="home_banner_slidedelay" value="" /> (set in Milliseconds 1000ms = 1s default 5000ms)</td>
+		</tr>
+        <tr>
+        	<td><label for="home_banner_disable_mousedrag">Disable drag with mouse on non touch device</label></td>
+			<td><input type="checkbox" id="home_banner_disable_mousedrag" name="home_banner_disable_mousedrag" value="1" /></td>
+		</tr>
+    </table>
+    <h2>Slide 1</h2>
+	<table>
+		<tr>
+			<td><label for="home_banner_slide_visible_1">Visible</label></td>
+			<td><input type="checkbox" id="home_banner_slide_visible_1" name="home_banner_slide_visible_1" value="1" /></td>
+		</tr>
+        <tr>
+			<td><label for="home_banner_slide_class_1">Caption Position</label></td>
+			<td><select id="home_banner_slide_class_1" name="home_banner_slide_class_1">
+                <option value="royalCaption_Style1">Left</option>
+                <option value="royalCaption_Style2">Centre</option>
+                <option value="royalCaption_Style3">Right</option>
+            </select></td>
+		</tr>
+		<tr>
+			<td><label for="home_banner_slide_title_1">Title</label></td>
+			<td><input type="text" id="home_banner_slide_title_1" name="home_banner_slide_title_1" value="" /></td>
+		</tr>
+    	<tr>
+			<td><label for="home_banner_slide_title_show_effect_1">Title Show Effect</label></td>
+			<td><input type="text" id="home_banner_slide_title_show_effect_1" name="home_banner_slide_title_show_effect_1" value="" /> eg. fade movetop movebottom moveleft moveright</td>
+		</tr>
+        <tr>
+			<td><label for="home_banner_slide_title_move_offset_1">Title Move Offset</label></td>
+			<td><input type="text" id="home_banner_slide_title_move_offset_1" name="home_banner_slide_title_move_offset_1" value="" /> hint: distance for move effect in pixels</td>
+		</tr>
+		<tr>
+			<td><label for="home_banner_slide_caption_1">Caption</label></td>
+			<td><input type="text" id="home_banner_slide_caption_1" name="home_banner_slide_caption_1" value="" /></td>
+		</tr>
+        <tr>
+			<td><label for="home_banner_slide_caption_show_effect_1">Caption Show Effect</label></td>
+			<td><input type="text" id="home_banner_slide_caption_show_effect_1" name="home_banner_slide_caption_show_effect_1" value="" /> eg. fade movetop movebottom moveleft moveright</td>
+		</tr>
+        <tr>
+			<td><label for="home_banner_slide_caption_move_offset_1">Caption Move Offset</label></td>
+			<td><input type="text" id="home_banner_slide_caption_move_offset_1" name="home_banner_slide_caption_move_offset_1" value="" /> hint: distance for move effect in pixels</td>
+		</tr>
+		<tr>
+			<td><label for="home_banner_slide_link_1">Link URL</label></td>
+			<td><input type="text" id="home_banner_slide_link_1" name="home_banner_slide_link_1" value="" /></td>
+		</tr>
+    	<tr>
+			<td><label for="home_banner_slide_link_text_1">Link Text</label></td>
+			<td><input type="text" id="home_banner_slide_link_text_1" name="home_banner_slide_link_text_1" value="" /></td>
+		</tr>
+        <tr>
+            <td><label for="home_banner_slide_link_show_effect_1">Link Show Effect</label></td>
+			<td><input type="text" id="home_banner_slide_link_show_effect_1" name="home_banner_slide_link_show_effect_1" value="" /> eg. fade movetop movebottom moveleft moveright</td>
+		</tr>
+        <tr>
+			<td><label for="home_banner_slide_link_move_offset_1">Link Move Offset</label></td>
+			<td><input type="text" id="home_banner_slide_link_move_offset_1" name="home_banner_slide_link_move_offset_1" value="" /> hint: distance for move effect in pixels</td>
+		</tr>
+	    <tr>
+			<td><label for="home_banner_slide_image_upload_1">Upload an image <br />(<strong>Note:</strong> for best results, use the same aspect ratio as the other slides and ensure the width is at least 940 pixels.)</label></td>
+			<td><input type="file" id="home_banner_slide_image_upload_1" name="home_banner_slide_image_1.png" data-max-width="940" /></td>
+	    </tr>
+	</table>
+    
+	<h2>Slide 2</h2>
+	<table>
+		<tr>
+			<td><label for="home_banner_slide_visible_2">Visible</label></td>
+			<td><input type="checkbox" id="home_banner_slide_visible_2" name="home_banner_slide_visible_2" value="1" /></td>
+		</tr>
+        <tr>
+    		<td><label for="home_banner_slide_class_2">Caption Position</label></td>
+    		<td><select id="home_banner_slide_class_2" name="home_banner_slide_class_2">
+                <option value="royalCaption_Style1">Left</option>
+                <option value="royalCaption_Style2">Centre</option>
+                <option value="royalCaption_Style3">Right</option>
+            </select></td>
+		</tr>
+		<tr>
+			<td><label for="home_banner_slide_title_2">Title</label></td>
+			<td><input type="text" id="home_banner_slide_title_2" name="home_banner_slide_title_2" value="" /></td>
+		</tr>
+        <tr>
+			<td><label for="home_banner_slide_title_show_effect_2">Title Show Effect</label></td>
+			<td><input type="text" id="home_banner_slide_title_show_effect_2" name="home_banner_slide_title_show_effect_2" value="" /> eg. fade movetop movebottom moveleft moveright</td>
+		</tr>
+        <tr>
+			<td><label for="home_banner_slide_title_move_offset_2">Title Move Offset</label></td>
+			<td><input type="text" id="home_banner_slide_title_move_offset_2" name="home_banner_slide_title_move_offset_2" value="" /> hint: distance for move effect in pixels</td>
+		</tr>
+		<tr>
+			<td><label for="home_banner_slide_caption_2">Caption</label></td>
+			<td><input type="text" id="home_banner_slide_caption_2" name="home_banner_slide_caption_2" value="" /></td>
+		</tr>
+        <tr>
+    		<td><label for="home_banner_slide_caption_show_effect_2">Caption Show Effect</label></td>
+			<td><input type="text" id="home_banner_slide_caption_show_effect_2" name="home_banner_slide_caption_show_effect_2" value="" /> eg. fade movetop movebottom moveleft moveright</td>
+		</tr>
+        <tr>
+			<td><label for="home_banner_slide_caption_move_offset_2">Caption Move Offset</label></td>
+			<td><input type="text" id="home_banner_slide_caption_move_offset_2" name="home_banner_slide_caption_move_offset_2" value="" /> hint: distance for move effect in pixels</td>
+		</tr>
+		<tr>
+			<td><label for="home_banner_slide_link_2">Link URL</label></td>
+			<td><input type="text" id="home_banner_slide_link_2" name="home_banner_slide_link_2" value="" /></td>
+		</tr>
+        <tr>
+			<td><label for="home_banner_slide_link_text_2">Link Text</label></td>
+			<td><input type="text" id="home_banner_slide_link_text_2" name="home_banner_slide_link_text_2" value="" /></td>
+		</tr>
+        <tr>
+            <td><label for="home_banner_slide_link_show_effect_2">Link Show Effect</label></td>
+			<td><input type="text" id="home_banner_slide_link_show_effect_2" name="home_banner_slide_link_show_effect_2" value="" /> eg. fade movetop movebottom moveleft moveright</td>
+		</tr>
+        <tr>
+			<td><label for="home_banner_slide_link_move_offset_2">Link Move Offset</label></td>
+			<td><input type="text" id="home_banner_slide_link_move_offset_2" name="home_banner_slide_link_move_offset_2" value="" /> hint: distance for move effect in pixels</td>
+		</tr>
+	    <tr>
+			<td><label for="home_banner_slide_image_upload_2">Upload an image <br />(<strong>Note:</strong> for best results, use the same aspect ratio as the other slides and ensure the width is at least 940 pixels.)</label></td>
+			<td><input type="file" id="home_banner_slide_image_upload_2" name="home_banner_slide_image_2.png" data-max-width="940" /></td>
+	    </tr>
+	</table>
+
+    <h2>Slide 3</h2>
+	<table>
+		<tr>
+			<td><label for="home_banner_slide_visible_3">Visible</label></td>
+			<td><input type="checkbox" id="home_banner_slide_visible_3" name="home_banner_slide_visible_3" value="1" /></td>
+		</tr>
+        <tr>
+        	<td><label for="home_banner_slide_class_3">Caption Position</label></td>
+    		<td><select id="home_banner_slide_class_3" name="home_banner_slide_class_3">
+                <option value="royalCaption_Style1">Left</option>
+                <option value="royalCaption_Style2">Centre</option>
+                <option value="royalCaption_Style3">Right</option>
+            </select></td>
+		</tr>
+		<tr>
+			<td><label for="home_banner_slide_title_3">Title</label></td>
+			<td><input type="text" id="home_banner_slide_title_3" name="home_banner_slide_title_3" value="" /></td>
+		</tr>
+        <tr>
+			<td><label for="home_banner_slide_title_show_effect_3">Title Show Effect</label></td>
+			<td><input type="text" id="home_banner_slide_title_show_effect_3" name="home_banner_slide_title_show_effect_3" value="" /> eg. fade movetop movebottom moveleft moveright</td>
+		</tr>
+        <tr>
+			<td><label for="home_banner_slide_title_move_offset_3">Title Move Offset</label></td>
+			<td><input type="text" id="home_banner_slide_title_move_offset_3" name="home_banner_slide_title_move_offset_3" value="" /> hint: distance for move effect in pixels</td>
+		</tr>
+		<tr>
+			<td><label for="home_banner_slide_caption_3">Caption</label></td>
+			<td><input type="text" id="home_banner_slide_caption_3" name="home_banner_slide_caption_3" value="" /></td>
+		</tr>
+        <tr>
+    		<td><label for="home_banner_slide_caption_show_effect_3">Caption Show Effect</label></td>
+			<td><input type="text" id="home_banner_slide_caption_show_effect_3" name="home_banner_slide_caption_show_effect_3" value="" /> eg. fade movetop movebottom moveleft moveright</td>
+		</tr>
+        <tr>
+			<td><label for="home_banner_slide_caption_move_offset_3">Caption Move Offset</label></td>
+			<td><input type="text" id="home_banner_slide_caption_move_offset_3" name="home_banner_slide_caption_move_offset_3" value="" /> hint: distance for move effect in pixels</td>
+		</tr>
+		<tr>
+			<td><label for="home_banner_slide_link_3">Link URL</label></td>
+			<td><input type="text" id="home_banner_slide_link_3" name="home_banner_slide_link_3" value="" /></td>
+		</tr>
+        <tr>
+    		<td><label for="home_banner_slide_link_text_3">Link Text</label></td>
+			<td><input type="text" id="home_banner_slide_link_text_3" name="home_banner_slide_link_text_3" value="" /></td>
+		</tr>
+        <tr>
+        	<td><label for="home_banner_slide_link_show_effect_3">Link Show Effect</label></td>
+			<td><input type="text" id="home_banner_slide_link_show_effect_3" name="home_banner_slide_link_show_effect_3" value="" /> eg. fade movetop movebottom moveleft moveright</td>
+		</tr>
+        <tr>
+			<td><label for="home_banner_slide_link_move_offset_3">Link Move Offset</label></td>
+			<td><input type="text" id="home_banner_slide_link_move_offset_3" name="home_banner_slide_link_move_offset_3" value="" /> hint: distance for move effect in pixels</td>
+		</tr>
+	    <tr>
+			<td><label for="home_banner_slide_image_upload_3">Upload an image <br />(<strong>Note:</strong> for best results, use the same aspect ratio as the other slides and ensure the width is at least 940 pixels.)</label></td>
+			<td><input type="file" id="home_banner_slide_image_upload_3" name="home_banner_slide_image_3.png" data-max-width="940" /></td>
+	    </tr>
+    </table>
+    <h2>Slide 4</h2>
+    <table>
+		<tr>
+			<td><label for="home_banner_slide_visible_4">Visible</label></td>
+			<td><input type="checkbox" id="home_banner_slide_visible_4" name="home_banner_slide_visible_4" value="1" /></td>
+		</tr>
+        <tr>
+        	<td><label for="home_banner_slide_class_4">Caption Position</label></td>
+    		<td><select id="home_banner_slide_class_4" name="home_banner_slide_class_4">
+                <option value="royalCaption_Style1">Left</option>
+                <option value="royalCaption_Style2">Centre</option>
+                <option value="royalCaption_Style3">Right</option>
+            </select></td>
+		</tr>
+		<tr>
+			<td><label for="home_banner_slide_title_4">Title</label></td>
+			<td><input type="text" id="home_banner_slide_title_4" name="home_banner_slide_title_4" value="" /></td>
+		</tr>
+        <tr>
+			<td><label for="home_banner_slide_title_show_effect_4">Title Show Effect</label></td>
+			<td><input type="text" id="home_banner_slide_title_show_effect_4" name="home_banner_slide_title_show_effect_4" value="" /> eg. fade movetop movebottom moveleft moveright</td>
+		</tr>
+        <tr>
+			<td><label for="home_banner_slide_title_move_offset_4">Title Move Offset</label></td>
+			<td><input type="text" id="home_banner_slide_title_move_offset_4" name="home_banner_slide_title_move_offset_4" value="" /> hint: distance for move effect in pixels</td>
+		</tr>
+		<tr>
+			<td><label for="home_banner_slide_caption_4">Caption</label></td>
+			<td><input type="text" id="home_banner_slide_caption_4" name="home_banner_slide_caption_4" value="" /></td>
+		</tr>
+        <tr>
+    		<td><label for="home_banner_slide_caption_show_effect_4">Caption Show Effect</label></td>
+			<td><input type="text" id="home_banner_slide_caption_show_effect_4" name="home_banner_slide_caption_show_effect_4" value="" /> eg. fade movetop movebottom moveleft moveright</td>
+		</tr>
+        <tr>
+			<td><label for="home_banner_slide_caption_move_offset_4">Caption Move Offset</label></td>
+			<td><input type="text" id="home_banner_slide_caption_move_offset_4" name="home_banner_slide_caption_move_offset_4" value="" /> hint: distance for move effect in pixels</td>
+		</tr>
+		<tr>
+			<td><label for="home_banner_slide_link_4">Link URL</label></td>
+			<td><input type="text" id="home_banner_slide_link_4" name="home_banner_slide_link_4" value="" /></td>
+		</tr>
+        <tr>
+    		<td><label for="home_banner_slide_link_text_4">Link Text</label></td>
+			<td><input type="text" id="home_banner_slide_link_text_4" name="home_banner_slide_link_text_4" value="" /></td>
+		</tr>
+        <tr>
+        	<td><label for="home_banner_slide_link_show_effect_4">Link Show Effect</label></td>
+			<td><input type="text" id="home_banner_slide_link_show_effect_4" name="home_banner_slide_link_show_effect_4" value="" /> eg. fade movetop movebottom moveleft moveright</td>
+		</tr>
+        <tr>
+			<td><label for="home_banner_slide_link_move_offset_4">Link Move Offset</label></td>
+			<td><input type="text" id="home_banner_slide_link_move_offset_4" name="home_banner_slide_link_move_offset_4" value="" /> hint: distance for move effect in pixels</td>
+		</tr>
+	    <tr>
+			<td><label for="home_banner_slide_image_upload_4">Upload an image <br />(<strong>Note:</strong> for best results, use the same aspect ratio as the other slides and ensure the width is at least 940 pixels.)</label></td>
+			<td><input type="file" id="home_banner_slide_image_upload_4" name="home_banner_slide_image_upload_4.png" data-max-width="940" /></td>
+	    </tr>
+	</table>
+    <h2>Slide 5</h2>
+    <table>
+    	<tr>
+			<td><label for="home_banner_slide_visible_5">Visible</label></td>
+			<td><input type="checkbox" id="home_banner_slide_visible_5" name="home_banner_slide_visible_5" value="1" /></td>
+		</tr>
+        <tr>
+        	<td><label for="home_banner_slide_class_5">Caption Position</label></td>
+    		<td><select id="home_banner_slide_class_5" name="home_banner_slide_class_5">
+                <option value="royalCaption_Style1">Left</option>
+                <option value="royalCaption_Style2">Centre</option>
+                <option value="royalCaption_Style3">Right</option>
+            </select></td>
+		</tr>
+		<tr>
+			<td><label for="home_banner_slide_title_5">Title</label></td>
+			<td><input type="text" id="home_banner_slide_title_5" name="home_banner_slide_title_5" value="" /></td>
+		</tr>
+        <tr>
+			<td><label for="home_banner_slide_title_show_effect_5">Title Show Effect</label></td>
+			<td><input type="text" id="home_banner_slide_title_show_effect_5" name="home_banner_slide_title_show_effect_5" value="" /> eg. fade movetop movebottom moveleft moveright</td>
+		</tr>
+        <tr>
+			<td><label for="home_banner_slide_title_move_offset_5">Title Move Offset</label></td>
+			<td><input type="text" id="home_banner_slide_title_move_offset_5" name="home_banner_slide_title_move_offset_5" value="" /> hint: distance for move effect in pixels</td>
+		</tr>
+		<tr>
+			<td><label for="home_banner_slide_caption_5">Caption</label></td>
+			<td><input type="text" id="home_banner_slide_caption_5" name="home_banner_slide_caption_5" value="" /></td>
+		</tr>
+        <tr>
+    		<td><label for="home_banner_slide_caption_show_effect_5">Caption Show Effect</label></td>
+			<td><input type="text" id="home_banner_slide_caption_show_effect_5" name="home_banner_slide_caption_show_effect_5" value="" /> eg. fade movetop movebottom moveleft moveright</td>
+		</tr>
+        <tr>
+			<td><label for="home_banner_slide_caption_move_offset_5">Caption Move Offset</label></td>
+			<td><input type="text" id="home_banner_slide_caption_move_offset_5" name="home_banner_slide_caption_move_offset_5" value="" /> hint: distance for move effect in pixels</td>
+		</tr>
+		<tr>
+			<td><label for="home_banner_slide_link_5">Link URL</label></td>
+			<td><input type="text" id="home_banner_slide_link_5" name="home_banner_slide_link_5" value="" /></td>
+		</tr>
+        <tr>
+    		<td><label for="home_banner_slide_link_text_5">Link Text</label></td>
+			<td><input type="text" id="home_banner_slide_link_text_5" name="home_banner_slide_link_text_5" value="" /></td>
+		</tr>
+        <tr>
+        	<td><label for="home_banner_slide_link_show_effect_5">Link Show Effect</label></td>
+			<td><input type="text" id="home_banner_slide_link_show_effect_5" name="home_banner_slide_link_show_effect_5" value="" /> eg. fade movetop movebottom moveleft moveright</td>
+		</tr>
+        <tr>
+			<td><label for="home_banner_slide_link_move_offset_5">Link Move Offset</label></td>
+			<td><input type="text" id="home_banner_slide_link_move_offset_5" name="home_banner_slide_link_move_offset_5" value="" /> hint: distance for move effect in pixels</td>
+		</tr>
+	    <tr>
+			<td><label for="home_banner_slide_image_upload_5">Upload an image <br />(<strong>Note:</strong> for best results, use the same aspect ratio as the other slides and ensure the width is at least 940 pixels.)</label></td>
+			<td><input type="file" id="home_banner_slide_image_upload_5" name="home_banner_slide_image_upload_5.png" data-max-width="940" /></td>
+	    </tr>
+	</table>
+    <h2>Slide 6</h2>
+    <table>
+        <tr>
+			<td><label for="home_banner_slide_visible_6">Visible</label></td>
+			<td><input type="checkbox" id="home_banner_slide_visible_6" name="home_banner_slide_visible_6" value="1" /></td>
+		</tr>
+        <tr>
+        	<td><label for="home_banner_slide_class_6">Caption Position</label></td>
+    		<td><select id="home_banner_slide_class_6" name="home_banner_slide_class_6">
+                <option value="royalCaption_Style1">Left</option>
+                <option value="royalCaption_Style2">Centre</option>
+                <option value="royalCaption_Style3">Right</option>
+            </select></td>
+		</tr>
+		<tr>
+			<td><label for="home_banner_slide_title_6">Title</label></td>
+			<td><input type="text" id="home_banner_slide_title_6" name="home_banner_slide_title_6" value="" /></td>
+		</tr>
+        <tr>
+			<td><label for="home_banner_slide_title_show_effect_6">Title Show Effect</label></td>
+			<td><input type="text" id="home_banner_slide_title_show_effect_6" name="home_banner_slide_title_show_effect_6" value="" /> eg. fade movetop movebottom moveleft moveright</td>
+		</tr>
+        <tr>
+			<td><label for="home_banner_slide_title_move_offset_6">Title Move Offset</label></td>
+			<td><input type="text" id="home_banner_slide_title_move_offset_6" name="home_banner_slide_title_move_offset_6" value="" /> hint: distance for move effect in pixels</td>
+		</tr>
+		<tr>
+			<td><label for="home_banner_slide_caption_6">Caption</label></td>
+			<td><input type="text" id="home_banner_slide_caption_6" name="home_banner_slide_caption_6" value="" /></td>
+		</tr>
+        <tr>
+    		<td><label for="home_banner_slide_caption_show_effect_6">Caption Show Effect</label></td>
+			<td><input type="text" id="home_banner_slide_caption_show_effect_6" name="home_banner_slide_caption_show_effect_6" value="" /> eg. fade movetop movebottom moveleft moveright</td>
+		</tr>
+        <tr>
+			<td><label for="home_banner_slide_caption_move_offset_6">Caption Move Offset</label></td>
+			<td><input type="text" id="home_banner_slide_caption_move_offset_6" name="home_banner_slide_caption_move_offset_6" value="" /> hint: distance for move effect in pixels</td>
+		</tr>
+		<tr>
+			<td><label for="home_banner_slide_link_6">Link URL</label></td>
+			<td><input type="text" id="home_banner_slide_link_6" name="home_banner_slide_link_6" value="" /></td>
+		</tr>
+        <tr>
+    		<td><label for="home_banner_slide_link_text_6">Link Text</label></td>
+			<td><input type="text" id="home_banner_slide_link_text_6" name="home_banner_slide_link_text_6" value="" /></td>
+		</tr>
+        <tr>
+        	<td><label for="home_banner_slide_link_show_effect_6">Link Show Effect</label></td>
+			<td><input type="text" id="home_banner_slide_link_show_effect_6" name="home_banner_slide_link_show_effect_6" value="" /> eg. fade movetop movebottom moveleft moveright</td>
+		</tr>
+        <tr>
+			<td><label for="home_banner_slide_link_move_offset_6">Link Move Offset</label></td>
+			<td><input type="text" id="home_banner_slide_link_move_offset_6" name="home_banner_slide_link_move_offset_6" value="" /> hint: distance for move effect in pixels</td>
+		</tr>
+	    <tr>
+			<td><label for="home_banner_slide_image_upload_6">Upload an image <br />(<strong>Note:</strong> for best results, use the same aspect ratio as the other slides and ensure the width is at least 940 pixels.)</label></td>
+			<td><input type="file" id="home_banner_slide_image_upload_6" name="home_banner_slide_image_upload_6.png" data-max-width="940" /></td>
+	    </tr>
+	</table>
+    <h2>Slide 7</h2>
+    <table>
+        <tr>
+    		<td><label for="home_banner_slide_visible_7">Visible</label></td>
+			<td><input type="checkbox" id="home_banner_slide_visible_7" name="home_banner_slide_visible_7" value="1" /></td>
+		</tr>
+        <tr>
+        	<td><label for="home_banner_slide_class_7">Caption Position</label></td>
+    		<td><select id="home_banner_slide_class_7" name="home_banner_slide_class_7">
+                <option value="royalCaption_Style1">Left</option>
+                <option value="royalCaption_Style2">Centre</option>
+                <option value="royalCaption_Style3">Right</option>
+            </select></td>
+		</tr>
+		<tr>
+			<td><label for="home_banner_slide_title_7">Title</label></td>
+			<td><input type="text" id="home_banner_slide_title_7" name="home_banner_slide_title_7" value="" /></td>
+		</tr>
+        <tr>
+			<td><label for="home_banner_slide_title_show_effect_7">Title Show Effect</label></td>
+			<td><input type="text" id="home_banner_slide_title_show_effect_7" name="home_banner_slide_title_show_effect_7" value="" /> eg. fade movetop movebottom moveleft moveright</td>
+		</tr>
+        <tr>
+			<td><label for="home_banner_slide_title_move_offset_7">Title Move Offset</label></td>
+			<td><input type="text" id="home_banner_slide_title_move_offset_7" name="home_banner_slide_title_move_offset_7" value="" /> hint: distance for move effect in pixels</td>
+		</tr>
+		<tr>
+			<td><label for="home_banner_slide_caption_7">Caption</label></td>
+			<td><input type="text" id="home_banner_slide_caption_7" name="home_banner_slide_caption_7" value="" /></td>
+		</tr>
+        <tr>
+    		<td><label for="home_banner_slide_caption_show_effect_7">Caption Show Effect</label></td>
+			<td><input type="text" id="home_banner_slide_caption_show_effect_7" name="home_banner_slide_caption_show_effect_7" value="" /> eg. fade movetop movebottom moveleft moveright</td>
+		</tr>
+        <tr>
+			<td><label for="home_banner_slide_caption_move_offset_7">Caption Move Offset</label></td>
+			<td><input type="text" id="home_banner_slide_caption_move_offset_7" name="home_banner_slide_caption_move_offset_7" value="" /> hint: distance for move effect in pixels</td>
+		</tr>
+		<tr>
+			<td><label for="home_banner_slide_link_7">Link URL</label></td>
+			<td><input type="text" id="home_banner_slide_link_7" name="home_banner_slide_link_7" value="" /></td>
+		</tr>
+        <tr>
+    		<td><label for="home_banner_slide_link_text_7">Link Text</label></td>
+			<td><input type="text" id="home_banner_slide_link_text_7" name="home_banner_slide_link_text_7" value="" /></td>
+		</tr>
+        <tr>
+        	<td><label for="home_banner_slide_link_show_effect_7">Link Show Effect</label></td>
+			<td><input type="text" id="home_banner_slide_link_show_effect_7" name="home_banner_slide_link_show_effect_7" value="" /> eg. fade movetop movebottom moveleft moveright</td>
+		</tr>
+        <tr>
+			<td><label for="home_banner_slide_link_move_offset_7">Link Move Offset</label></td>
+			<td><input type="text" id="home_banner_slide_link_move_offset_7" name="home_banner_slide_link_move_offset_7" value="" /> hint: distance for move effect in pixels</td>
+		</tr>
+	    <tr>
+			<td><label for="home_banner_slide_image_upload_7">Upload an image <br />(<strong>Note:</strong> for best results, use the same aspect ratio as the other slides and ensure the width is at least 940 pixels.)</label></td>
+			<td><input type="file" id="home_banner_slide_image_upload_7" name="home_banner_slide_image_upload_7.png" data-max-width="940" /></td>
+	    </tr>
+	</table>
+</fieldset>
+<fieldset>
+    <legend>Homepage</legend>
+    <h2>Sidebar Settings</h2>
+    <table>
+        <tr>
+        	<td><label for="home_sidebar_visible">Enable homepage sidebar?</label></td>
+			<td><input type="checkbox" id="home_sidebar_visible" name="home_sidebar_visible" value="1" /></td>
+		</tr>
+    </table>
+    <h2>Message - Widget</h2>
+    <table>
+        <tr>
+            <td><label for="text_widget_visible">Visible</label></td>
+    		<td><input type="checkbox" id="text_widget_visible" name="text_widget_visible" value="1" /></td>
+		</tr>
+        <tr>
+            <td><label for="text_widget_title">Widget Title</label></td>
+			<td><input type="text" id="text_widget_title" name="text_widget_title" /></td>
+		</tr>
+        <tr>
+            <td><label for="text_widget_page">Content from which page</label></td>
+    		<td><select class="page" id="text_widget_page" name="text_widget_page" /></td>
+		</tr>
+        <tr>
+            <td><label for="text_widget_word_limit">Word Limit</label></td>
+        	<td><input type="text" id="text_widget_word_limit" name="text_widget_word_limit" /></td>
+		</tr>
+        <tr>
+            <td><label for="text_widget_link">Link URL (leave blank if you don't want a link)</label></td>
+            <td><input type="text" id="text_widget_link" name="text_widget_link" /></td>
+		</tr>
+        <tr>
+            <td><label for="text_widget_link_text">Link Text</label></td>
+            <td><input type="text" id="text_widget_link_text" name="text_widget_link_text" /></td>
+    	</tr>
+    </table>
+    <h2>Recent Blog - Widget</h2>
+    <table>
+        <tr>
+            <td><label for="blog_widget_visible">Visible</label></td>
+        	<td><input type="checkbox" id="blog_widget_visible" name="blog_widget_visible" value="1" /></td>
+		</tr>
+        <tr>
+            <td><label for="blog_widget_title">Widget Title</label></td>
+			<td><input type="text" id="blog_widget_title" name="blog_widget_title" /></td>
+		</tr>
+        <tr>
+    		<td><label for="blog_widget_blog">What blog articles to show?</label></td>
+			<td><select id="blog_widget_blog" class="blog" name="blog_widget_blog" value="None" /></td>
+		</tr>
+        <tr>
+        	<td><label for="blog_widget_article_limit">How many Articles to display</label></td>
+			<td><input type="text" id="blog_widget_article_limit" name="blog_widget_article_limit" /></td>
+		</tr>
+        <tr>
+            <td><label for="blog_widget_word_limit">Word Limit</label></td>
+        	<td><input type="text" id="blog_widget_word_limit" name="blog_widget_word_limit" /></td>
+		</tr>
+    </table>
+    <h2>Twitter Feed - Widget</h2>
+    <table>
+        <tr>
+            <td><label for="twitter_widget_visible">Visible</label></td>
+            <td><input type="checkbox" id="twitter_widget_visible" name="twitter_widget_visible" value="1" /></td>
+		</tr>
+        <tr>
+            <td><label for="twitter_widget_title">Widget Title</label></td>
+			<td><input type="text" id="twitter_widget_title" name="twitter_widget_title" /></td>
+		</tr>
+        <tr>
+            <td><label for="twitter_widget_username">Twitter Username</label></td>
+			<td><input type="text" id="twitter_widget_username" name="twitter_widget_username" /></td>
+		</tr>
+        <tr>
+        	<td><label for="twitter_widget_tweet_limit">How many Tweets to display</label></td>
+			<td><input type="text" id="twitter_widget_tweet_limit" name="twitter_widget_tweet_limit" /></td>
+		</tr>
+        <tr>
+            <td><label for="twitter_widget_link_visible">Link Visible?</label></td>
+            <td><input type="checkbox" id="twitter_widget_link_visible" name="twitter_widget_link_visible" value="1" /></td>
+    	</tr>
+        <tr>
+            <td><label for="twitter_widget_link">Link URL (url to Twitter account)</label></td>
+        	<td><input type="text" id="twitter_widget_link" name="twitter_widget_link" /></td>
+		</tr>
+        <tr>
+            <td><label for="twitter_widget_link_text">Link Text ex. Follow @username</label></td>
+            <td><input type="text" id="twitter_widget_link_text" name="twitter_widget_link_text" /></td>
+		</tr>
+    </table>
+    <h2>Linklist - Widget</h2>
+    <table>
+        <tr>
+            <td><label for="linklist_widget_visible">Visible</label></td>
+            <td><input type="checkbox" id="linklist_widget_visible" name="linklist_widget_visible" value="1" /></td>
+    	</tr>
+        <tr>
+            <td><label for="linklist_widget_title">Widget Title</label></td>
+			<td><input type="text" id="linklist_widget_title" name="linklist_widget_title" /></td>
+		</tr>
+        <tr>
+            <td><label for="linklist_widget_linklist">Choose a Navigation</label></td>
+			<td><select id="linklist_widget_linklist" class="linklist" name="linklist_widget_linklist" /></td>
+		</tr>
+    </table>
+    <h2>Homepage Collection Settings</h2>
+    <table>
+        <tr>
+            <td><label for="frontpage_collection">What collection should appear on the homepage?</label></td>
+			<td><select id="frontpage_collection" class="collection" name="frontpage_collection" value="None" /></td>    
+        </tr>
+        <tr>
+            <td><label>Choose Your Homepage Layout</label></td>
+            <td>
+                <input type="radio" id="home_layout_1" name="home_layout" value="1" />
+                <label for="home_layout_1"><img src="http://static.shopify.com/s/files/1/0147/4372/t/6/assets/homepage_layout_onethird_sidebar.png" /></label>
+                <input type="radio" id="home_layout_2" name="home_layout" value="2" />
+                <label for="home_layout_2"><img src="http://static.shopify.com/s/files/1/0147/4372/t/6/assets/homepage_layout_span4_sidebarunder.png" /></label>
+                <input type="radio" id="home_layout_3" name="home_layout" value="3" />
+                <label for="home_layout_3"><img src="http://static.shopify.com/s/files/1/0147/4372/t/6/assets/homepage_layout_onethird_sidebarunder.png" /></label>
+            </td>
+        </tr>
+    </table>
+</fieldset>
+<fieldset>
+    <legend>Footer</legend>
+    <h2>General Settings</h2>
+    <table>
+        <tr>
+            <td><h3>Payment Options</h3></td>
+        </tr>
+        <tr>
+            <td><label for="footer_paypal">Paypal</label></td>
+            <td><input type="checkbox" id="footer_paypal" name="footer_paypal" value="1" /></td>
+        </tr>
+        <tr>
+            <td><label for="footer_visa">Visa</label></td>
+            <td><input type="checkbox" id="footer_visa" name="footer_visa" value="1" /></td>
+        </tr>
+        <tr>
+            <td><label for="footer_mastercard">Mastercard</label></td>
+            <td><input type="checkbox" id="footer_mastercard" name="footer_mastercard" value="1" /></td>
+        </tr>
+        <tr>
+            <td><label for="footer_amex">American Express</label></td>
+            <td><input type="checkbox" id="footer_amex" name="footer_amex" value="1" /></td>
+        </tr>
+        <tr>
+            <td><label for="footer_descover">Descover</label></td>
+            <td><input type="checkbox" id="footer_descover" name="footer_descover" value="1" /></td>
+        </tr>
+        <tr>
+            <td><h3>Copyright / Powered by Options</h3></td>
+        </tr>
+        <tr>
+            <td><label for="footer_copyright">Copyright visible?</label></td>
+            <td><input type="checkbox" id="footer_copyright" name="footer_copyright" value="1" /></td>
+        </tr>
+        <tr>
+            <td><label for="footer_copyright_text">Copyright text</label></td>
+            <td><input type="text" id="footer_copyright_text" name="footer_copyright_text"  />Ex. Copyright Fit to Scale 2012</td>
+        </tr>         
+        <tr>
+            <td><label for="footer_madeby">Remove created by line:</label></td>
+            <td><input type="checkbox" id="footer_madeby" name="footer_madeby" value="1" /></td>
+        </tr>
+        
+    </table>
+    <h2>Twitter Feed - Widget</h2>
+    <table>
+        <tr>
+            <td><label for="twitter_footer_widget_visible">Visible</label></td>
+            <td><input type="checkbox" id="twitter_footer_widget_visible" name="twitter_footer_widget_visible" value="1" /></td>
+    	</tr>
+        <tr>
+            <td><label for="twitter_footer_widget_title">Widget Title</label></td>
+			<td><input type="text" id="twitter_footer_widget_title" name="twitter_footer_widget_title" /></td>
+		</tr>
+        <tr>
+            <td><label for="twitter_footer_widget_username">Twitter Username</label></td>
+			<td><input type="text" id="twitter_footer_widget_username" name="twitter_footer_widget_username" /></td>
+		</tr>
+        <tr>
+        	<td><label for="twitter_footer_widget_tweet_limit">How many Tweets to display</label></td>
+			<td><input type="text" id="twitter_footer_widget_tweet_limit" name="twitter_footer_widget_tweet_limit" /></td>
+		</tr>
+        <tr>
+            <td><label for="twitter_footer_widget_link_visible">Link Visible?</label></td>
+            <td><input type="checkbox" id="twitter_footer_widget_link_visible" name="twitter_footer_widget_link_visible" value="1" /></td>
+		</tr>
+        <tr>
+            <td><label for="twitter_footer_widget_link">Link URL (url to Twitter account)</label></td>
+            <td><input type="text" id="twitter_footer_widget_link" name="twitter_footer_widget_link" /></td>
+		</tr>
+        <tr>
+            <td><label for="twitter_footer_widget_link_text">Link Text ex. Follow @username</label></td>
+            <td><input type="text" id="twitter_footer_widget_link_text" name="twitter_footer_widget_link_text" /></td>
+		</tr>
+    </table>
+    <h2>News Letter - Widget</h2>
+    <table>
+        <tr>
+            <td><label for="newsletter_footer_widget_visible">Visible</label></td>
+            <td><input type="checkbox" id="newsletter_footer_widget_visible" name="newsletter_footer_widget_visible" value="1" /></td>
+        </tr>
+        <tr>
+            <td><label for="newsletter_footer_widget_title">Widget Title</label></td>
+    		<td><input type="text" id="newsletter_footer_widget_title" name="newsletter_footer_widget_title" /></td>
+		</tr>
+        <tr>
+            <td><label for="newsletter_footer_widget_content">Widget Content</label></td>
+        	<td><input type="text" id="newsletter_footer_widget_content" name="newsletter_footer_widget_content" /></td>
+		</tr>
+        <tr>
+            <td><label for="newsletter_footer_widget_link_text">Link Text</label></td>
+        	<td><input type="text" id="newsletter_footer_widget_link_text" name="newsletter_footer_widget_link_text" /></td>
+		</tr>
+    </table>
+    <h2>Contact - Widget</h2>
+    <table>
+        <tr>
+            <td><label for="contact_footer_widget_visible">Visible</label></td>
+            <td><input type="checkbox" id="contact_footer_widget_visible" name="contact_footer_widget_visible" value="1" /></td>
+        </tr>
+        <tr>
+            <td><label for="contact_footer_widget_title">Widget Title</label></td>
+        	<td><input type="text" id="contact_footer_widget_title" name="contact_footer_widget_title" /></td>
+		</tr>
+        <tr>
+            <td><label for="contact_footer_widget_logo">Use Logo as Company name?</label></td>
+        	<td><input type="checkbox" id="contact_footer_widget_logo" name="contact_footer_widget_logo" value="1" /></td>
+		</tr>
+        <tr>
+            <td><label for="contact_footer_widget_companyname">Company Name ( if not using site logo )</label></td>
+            <td><input type="text" id="contact_footer_widget_companyname" name="contact_footer_widget_companyname" /></td>
+		</tr>
+        <tr>
+            <td><h3>Leave field empty if you want to exclude it from the contact info.</h3></td>
+        </tr>
+        <tr>
+            <td><label for="contact_footer_widget_street">Street Address</label></td>
+            <td><input type="text" id="contact_footer_widget_street" name="contact_footer_widget_street" /></td>
+		</tr>
+        <tr>
+            <td><label for="contact_footer_widget_city">City</label></td>
+            <td><input type="text" id="contact_footer_widget_city" name="contact_footer_widget_city" /></td>
+    	</tr>
+        <tr>
+            <td><label for="contact_footer_widget_postalcode">Postal Code / Zip Code</label></td>
+            <td><input type="text" id="contact_footer_widget_postalcode" name="contact_footer_widget_postalcode" /></td>
+    	</tr>
+        <tr>
+            <td><label for="contact_footer_widget_country">Country</label></td>
+            <td><input type="text" id="contact_footer_widget_country" name="contact_footer_widget_country" /></td>
+    	</tr>
+        <tr>
+            <td><label for="contact_footer_widget_phonenumber">Phone Number</label></td>
+            <td><input type="text" id="contact_footer_widget_phonenumber" name="contact_footer_widget_phonenumber" /></td>
+        </tr>
+        <tr>
+            <td><label for="contact_footer_widget_email">E-mail Addresss</label></td>
+            <td><input type="text" id="contact_footer_widget_email" name="contact_footer_widget_email" /></td>
+        </tr>
+    </table>
+    <h2>Social Networks - Widget</h2>
+    <table>
+        <tr>
+            <td><label for="socnet_footer_widget_visible">Visible</label></td>
+            <td><input type="checkbox" id="socnet_footer_widget_visible" name="socnet_footer_widget_visible" value="1" /></td>
+        </tr>
+        <tr>
+            <td><label for="socnet_footer_widget_title">Widget Title</label></td>
+            <td><input type="text" id="socnet_footer_widget_title" name="socnet_footer_widget_title" /></td>
+    	</tr>
+        <tr>
+            <td><h3>Leave field empty if you want exclude that social network.</h3></td>
+        </tr>
+        <tr>
+            <td><label for="socnet_footer_widget_facebook">Facebook Link</label></td>
+            <td><input type="text" id="socnet_footer_widget_facebook" name="socnet_footer_widget_facebook" /></td>
+        </tr>
+        <tr>
+            <td><label for="socnet_footer_widget_twitter">Twitter Link</label></td>
+            <td><input type="text" id="socnet_footer_widget_twitter" name="socnet_footer_widget_twitter" /></td>
+        </tr>
+        <tr>
+            <td><label for="socnet_footer_widget_pinterest">Pinterest Link</label></td>
+            <td><input type="text" id="socnet_footer_widget_pinterest" name="socnet_footer_widget_pinterest" /></td>
+        </tr>
+        <tr>
+            <td><label for="socnet_footer_widget_youtube">YouTube Link</label></td>
+            <td><input type="text" id="socnet_footer_widget_youtube" name="socnet_footer_widget_youtube" /></td>
+        </tr>
+        <tr>
+            <td><label for="socnet_footer_widget_flickr">Flickr Link</label></td>
+            <td><input type="text" id="socnet_footer_widget_flickr" name="socnet_footer_widget_flickr" /></td>
+        </tr>
+        <tr>
+            <td><label for="socnet_footer_widget_vimeo">Vimeo Link</label></td>
+            <td><input type="text" id="socnet_footer_widget_vimeo" name="socnet_footer_widget_vimeo" /></td>
+        </tr>
+    </table>
+</fieldset>
+<fieldset>
+    <legend>Product Page</legend>
+    <h2>Gernal Settings</h2>
+    <table>
+        <tr>
+            <td><label for="product_form_position">Form Options Position</label></td>
+            <td>
+                <select id="product_form_position" name="product_form_position">
+                    <option value="top">Top</option>
+                    <option value="bottom">Bottom</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="product_facebooklike_visible">Facebook like Visible</label></td>
+            <td><input type="checkbox" id="product_facebooklike_visible" name="product_facebooklike_visible" value="1" /></td>
+        </tr>
+        <tr>
+            <td><label for="product_tweetbtn_visible">Tweet Button Visible</label></td>
+            <td><input type="checkbox" id="product_tweetbtn_visible" name="product_tweetbtn_visible" value="1" /></td>
+        </tr>
+        <tr>
+            <td><label for="product_pinitbtn_visible">Pin It Button Visible</label></td>
+            <td><input type="checkbox" id="product_pinitbtn_visible" name="product_pinitbtn_visible" value="1" /></td>
+        </tr>    
+        <tr>
+            <td><label for="product_page_layout">Choose the layout product display</label></td>
+            <td>
+                <input type="radio" id="product_page_layout_1" name="product_page_layout" value="1" />
+                <label for="product_page_layout_1"><img src="http://static.shopify.com/s/files/1/0147/4372/t/6/assets/product_layout_right_details.png" /></label>
+                <input type="radio" id="product_page_layout_2" name="product_page_layout" value="2" />
+                <label for="product_page_layout_2"><img src="http://static.shopify.com/s/files/1/0147/4372/t/6/assets/product_layout_left_details.png" /></label>
+            </td>
+        </tr>
+        
+    </table>
+    <h2>Related / Recommended Products Section</h2>
+    <table>
+        <tr>
+            <td><label for="product_related_products_visible">Visible</label></td>
+            <td><input type="checkbox" id="product_related_products_visible" name="product_related_products_visible" value="1" /></td>
+        </tr>     
+        <tr>
+            <td><label for="product_related_products_title">Title</label></td>
+            <td><input type="text" id="product_related_products_title" name="product_related_products_title" value="" /></td>
+        </tr>  
+        <tr>
+            <td><label for="product_related_products_count">How many related Products to show</label></td>
+            <td><input type="text" id="product_related_products_count" name="product_related_products_count" value="" /></td>
+        </tr>  
+        <tr>
+            <td><label for="product_related_products_layout">Choose the layout for these products</label></td>
+            <td>
+                <input type="radio" id="product_related_products_layout_1" name="product_related_products_layout" value="span-one-third" />
+                <label for="product_related_products_layout_1"><img src="http://static.shopify.com/s/files/1/0147/4372/t/6/assets/collection_layout_three.png" /></label>
+                <input type="radio" id="product_related_products_layout_2" name="product_related_products_layout" value="span4" />
+                <label for="product_related_products_layout_2"><img src="http://static.shopify.com/s/files/1/0147/4372/t/6/assets/collection_layout_four.png" /></label>
+            </td>
+        </tr>    
+    </table>
+</fieldset>
+<fieldset>
+    <legend>Collections</legend>
+    <table>
+        <tr>
+            <td><label for="collection_product_tags_visible">Enable product tags (collection page)</label></td>
+            <td><input type="checkbox" id="collection_product_tags_visible" name="collection_product_tags_visible" value="1"/></td>
+        </tr>
+        <tr>
+            <td><label for="collection_description_visible">Enable collection description </label></td>
+            <td><input type="checkbox" id="collection_description_visible" name="collection_description_visible" value="1"/></td>
+        </tr> 
+        <tr>
+            <td><label for="collection_layout">Choose the layout for these products</label></td>
+            <td>
+                <input type="radio" id="collection_layout_1" name="collection_layout" value="span-one-third" />
+                <label for="collection_layout_1"><img src="http://static.shopify.com/s/files/1/0147/4372/t/6/assets/collection_layout_three.png" /></label>
+                <input type="radio" id="collection_layout_2" name="collection_layout" value="span4" />
+                <label for="collection_layout_2"><img src="http://static.shopify.com/s/files/1/0147/4372/t/6/assets/collection_layout_four.png" /></label>
+            </td>
+        </tr>
+    </table>
+</fieldset>
+<fieldset>
+    <legend>Blog / Article Settings</legend>
+    <table>
+        <tr>
+            <td><h3>Blog Page Settings</h3></td>
+        </tr>
+        <tr>
+            <td><label for="blog_sidebar_enabled">Include sidebar?</label></td>
+            <td><input type="checkbox" id="blog_sidebar_enabled" name="blog_sidebar_enabled" value="1" checked="checked"/></td>
+        </tr>
+        <tr>    
+            <td><label for="blog_subscribe_visible">Include Subscribe button?</label></td>
+            <td><input type="checkbox" id="blog_subscribe_visible" name="blog_subscribe_visible" value="1" checked="checked"/></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td><h3>Tag Widget</h3></td>
+        </tr>
+        <tr>
+            <td><label for="blogtag_widget_visible">Visible</label></td>
+        	<td><input type="checkbox" id="blogtag_widget_visible" name="blogtag_widget_visible" value="1" /></td>
+    	</tr>
+        <tr>
+            <td><label for="blogtag_widget_title">Widget Title</label></td>
+    		<td><input type="text" id="blogtag_widget_title" name="blogtag_widget_title" /></td>
+    	</tr>
+    </table>
+    <table>
+        <tr>
+            <td><h3>General Text Widget</h3></td>
+        </tr>
+        <tr>
+            <td><label for="blog_text_widget_visible">Visible</label></td>
+            <td><input type="checkbox" id="blog_text_widget_visible" name="blog_text_widget_visible" value="1" /></td>
+    	</tr>
+        <tr>
+            <td><label for="blog_text_widget_title">Widget Title</label></td>
+    		<td><input type="text" id="blog_text_widget_title" name="blog_text_widget_title" /></td>
+    	</tr>
+        <tr>
+            <td><label for="blog_text_widget_content">Widget Content</label></td>
+        	<td><textarea name="blog_text_widget_content" cols="60" rows="5" id="blog_text_widget_content" value="" /></td>
+    	</tr>
+    </table>
+</fieldset>
+<fieldset>
+  <legend>Cart</legend>
+  <table>
+      <tr>
+        <td><label for="cart_notes">Enable note field</label></td>
+        <td><input type="checkbox" id="cart_notes" name="cart_notes" value="1" checked="checked"/></td>
+      </tr>
+  </table>
+</fieldset>
+<!--
+<div class="section-info">
+    <h3>Instructions - Read This First</h3>
+    <p>Below you will find several sections for setting up the Monochrome theme. There are sensible defaults for all settings, but you should still look through all settings carefully. The documentation for the Monochrome theme is found at <a href="http://j.mp/pJukIt" target="_blank">http://j.mp/pJukIt</a>.</p>
+</div>
+
+
+<fieldset>
+  <legend>Typography</legend>
+  <table>
+		<tr>
+      <td><label for="header_font">Headers</label></td>
+      <td>
+        <select class="font" name="header_font" id="header_font">
+          <option value="Helvetica, Arial, sans-serif" selected="selected">Helvetica/Arial</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td><label for="regular_font">Regular text</label></td>
+      <td>
+        <select class="font" name="regular_font" id="regular_font">
+          <option value="Helvetica, Arial, sans-serif" selected="selected">Helvetica/Arial</option>
+        </select>
+      </td>
+    </tr>
+  </table>
+</fieldset>
+
+<fieldset>
+  <legend>Product Tags</legend>
+  <table>
+      <tr>
+        <td><label for="product_tags">Enable product tags (collection page)</label></td>
+        <td><input type="checkbox" id="product_tags" name="product_tags" value="1" checked="checked"/></td>
+      </tr>
+      <tr>
+        <td><label for="product_tags_text_color">Text color</label></td>
+        <td><input id="product_tags_text_color" name="product_tags_text_color" class="color" value="#FFFFFF" /></td>
+      </tr>
+      <tr>
+          <td><label for="product_tags_background_color">Background bubble color</label></td>
+          <td><input id="product_tags_background_color" name="product_tags_background_color" class="color" value="#131820" /></td>
+        </tr>
+  </table>
+</fieldset>
+-->

@@ -1,0 +1,36 @@
+<section id="search">
+    
+  {% if search.performed %}
+	<header>
+        <h2>Searching for "{{search.terms | escape}}"</h2>
+    </header>
+    {% paginate search.results by 8 %}  
+    {% if search.results == empty %}  
+      <p class="alt">Your search for "{{search.terms | escape}}" did not yield any results</p>              
+    {% else %}  
+    	<ul class="search_results">
+      	{% for item in search.results cols: 1 %}      
+      		<li class="row">
+                <div class="span2 img"><a href="{{ item.url | within: collection }}" title="{{ item.title | escape }}"><img src="{{ item.images.first | product_img_url: 'small' }}" alt="{{ item.title | escape }}" /></a></div>
+                <div class="span14 search_info">
+          			<h3><a href="{{ item.url | within: collection }}">{{ item.title | truncate: 30 }}</a></h3>
+          			<p>{{ item.content | strip_html | truncatewords: 40 | highlight: search.terms }}<br /><a class="viewlink" href="{{ item.url | within: collection }}">View this Product</a></p>
+                </div>
+      		    <div class="clr"></div>
+            </li>
+      	{% endfor %}
+        </ul>
+    {% endif %}
+    
+  	{% include "pagination" %}
+    
+    {% endpaginate %}    
+    
+  {% else %}
+    <header>
+	    <h2>Search</h2>
+    </header>
+    <p>You didn't enter anything in the search field. <a href="/collections/all">Continue shopping...</a></p>
+    {% endif %}
+    
+</section><!-- // #search -->

@@ -1,0 +1,474 @@
+{% if settings.home_banner == true %}
+<section id="home-banner">
+    <div id="mySlider" class="royalSlider default">        
+        <!-- Container of slides(images) -->       
+        <ul class="royalSlidesContainer">
+            {% if settings.home_banner_slide_visible_1 == true %}
+            <li class="royalSlide">
+    		    <img class="royalImage" src="{{ 'home_banner_slide_image_1' | asset_url }}" alt="{{settings.home_banner_slide_title_1 | escape}}" />
+                <div class="royalCaption {{settings.home_banner_slide_class_1}}">
+                    {% if settings.home_banner_slide_title_1 != "" %}<div class="royalCaptionItem title" data-show-effect="{{settings.home_banner_slide_title_show_effect_1}}" data-move-offset="{{settings.home_banner_slide_title_move_offset_1}}">{{settings.home_banner_slide_title_1}}</div>{% endif %}
+                    {% if settings.home_banner_slide_caption_1 != "" %}<div class="royalCaptionItem caption" data-show-effect="{{settings.home_banner_slide_caption_show_effect_1}}" data-move-offset="{{settings.home_banner_slide_caption_move_offset_1}}">{{settings.home_banner_slide_caption_1}}</div>{% endif %}
+                    {% if settings.home_banner_slide_link_text_1 != "" %}<a class="royalCaptionItem link btn btn-primary" data-show-effect="{{settings.home_banner_slide_link_show_effect_1}}" data-move-offset="{{settings.home_banner_slide_link_move_offset_1}}" href="{{settings.home_banner_slide_link_1}}" title="{{settings.home_banner_slide_link_text_1 | escape}}">{{settings.home_banner_slide_link_text_1}}</a>{% endif %}
+                </div> 
+            </li>
+            {% endif %}
+            {% if settings.home_banner_slide_visible_2 == true %}
+            <li class="royalSlide">
+    			<img class="royalImage" src="{{ 'home_banner_slide_image_2.png' | asset_url }}" alt="{{settings.home_banner_slide_title_2 | escape}}" />
+                <div class="royalCaption {{settings.home_banner_slide_class_2}}">
+                    {% if settings.home_banner_slide_title_2 != "" %}<div class="royalCaptionItem title" data-show-effect="{{settings.home_banner_slide_title_show_effect_2}}" data-move-offset="{{settings.home_banner_slide_title_move_offset_2}}">{{settings.home_banner_slide_title_2}}</div>{% endif %}
+                    {% if settings.home_banner_slide_caption_2 != "" %}<div class="royalCaptionItem caption" data-show-effect="{{settings.home_banner_slide_caption_show_effect_2}}" data-move-offset="{{settings.home_banner_slide_caption_move_offset_2}}">{{settings.home_banner_slide_caption_2}}</div>{% endif %}
+                    {% if settings.home_banner_slide_link_text_2 != "" %}<a class="royalCaptionItem link btn btn-primary" data-show-effect="{{settings.home_banner_slide_link_show_effect_2}}" data-move-offset="{{settings.home_banner_slide_link_move_offset_2}}" href="{{settings.home_banner_slide_link_2}}" title="{{settings.home_banner_slide_link_text_2 | escape}}">{{settings.home_banner_slide_link_text_2}}</a>{% endif %}
+                </div> 
+            </li>
+            {% endif %}
+            {% if settings.home_banner_slide_visible_3 == true %}
+            <li class="royalSlide">
+    			<img class="royalImage" src="{{ 'home_banner_slide_image_3.png' | asset_url }}" alt="{{settings.home_banner_slide_title_3 | escape}}" />
+                <div class="royalCaption {{settings.home_banner_slide_class_3}}">
+                    {% if settings.home_banner_slide_title_3 != "" %}<div class="royalCaptionItem title" data-show-effect="{{settings.home_banner_slide_title_show_effect_3}}" data-move-offset="{{settings.home_banner_slide_title_move_offset_3}}">{{settings.home_banner_slide_title_3}}</div>{% endif %}
+                    {% if settings.home_banner_slide_caption_3 != "" %}<div class="royalCaptionItem caption" data-show-effect="{{settings.home_banner_slide_caption_show_effect_3}}" data-move-offset="{{settings.home_banner_slide_caption_move_offset_3}}">{{settings.home_banner_slide_caption_3}}</div>{% endif %}
+                    {% if settings.home_banner_slide_link_text_3 != "" %}<a class="royalCaptionItem link btn btn-primary" data-show-effect="{{settings.home_banner_slide_link_show_effect_3}}" data-move-offset="{{settings.home_banner_slide_link_move_offset_3}}" href="{{settings.home_banner_slide_link_3}}" title="{{settings.home_banner_slide_link_text_3 | escape}}">{{settings.home_banner_slide_link_text_3}}</a>{% endif %}
+                </div> 
+            </li>
+            {% endif %}
+            {% if settings.home_banner_slide_visible_4 == true %}
+            <li class="royalSlide">
+        		<img class="royalImage" src="{{ 'home_banner_slide_image_4.png' | asset_url }}" alt="{{settings.home_banner_slide_title_4 | escape}}" />
+                <div class="royalCaption {{settings.home_banner_slide_class_3}}">
+                    {% if settings.home_banner_slide_title_4 != "" %}<div class="royalCaptionItem title" data-show-effect="{{settings.home_banner_slide_title_show_effect_4}}" data-move-offset="{{settings.home_banner_slide_title_move_offset_4}}">{{settings.home_banner_slide_title_4}}</div>{% endif %}
+                    {% if settings.home_banner_slide_caption_4 != "" %}<div class="royalCaptionItem caption" data-show-effect="{{settings.home_banner_slide_caption_show_effect_4}}" data-move-offset="{{settings.home_banner_slide_caption_move_offset_4}}">{{settings.home_banner_slide_caption_4}}</div>{% endif %}
+                    {% if settings.home_banner_slide_link_text_4 != "" %}<a class="royalCaptionItem link btn btn-primary" data-show-effect="{{settings.home_banner_slide_link_show_effect_4}}" data-move-offset="{{settings.home_banner_slide_link_move_offset_4}}" href="{{settings.home_banner_slide_link_4}}" title="{{settings.home_banner_slide_link_text_4 | escape}}">{{settings.home_banner_slide_link_text_4}}</a>{% endif %}
+                </div> 
+            </li>
+            {% endif %}
+            {% if settings.home_banner_slide_visible_5 == true %}
+            <li class="royalSlide">
+            	<img class="royalImage" src="{{ 'home_banner_slide_image_5.png' | asset_url }}" alt="{{settings.home_banner_slide_title_5 | escape}}" />
+                <div class="royalCaption {{settings.home_banner_slide_class_3}}">
+                    {% if settings.home_banner_slide_title_5 != "" %}<div class="royalCaptionItem title" data-show-effect="{{settings.home_banner_slide_title_show_effect_5}}" data-move-offset="{{settings.home_banner_slide_title_move_offset_5}}">{{settings.home_banner_slide_title_5}}</div>{% endif %}
+                    {% if settings.home_banner_slide_caption_5 != "" %}<div class="royalCaptionItem caption" data-show-effect="{{settings.home_banner_slide_caption_show_effect_5}}" data-move-offset="{{settings.home_banner_slide_caption_move_offset_5}}">{{settings.home_banner_slide_caption_5}}</div>{% endif %}
+                    {% if settings.home_banner_slide_link_text_5 != "" %}<a class="royalCaptionItem link btn btn-primary" data-show-effect="{{settings.home_banner_slide_link_show_effect_5}}" data-move-offset="{{settings.home_banner_slide_link_move_offset_5}}" href="{{settings.home_banner_slide_link_5}}" title="{{settings.home_banner_slide_link_text_5 | escape}}">{{settings.home_banner_slide_link_text_5}}</a>{% endif %}
+                </div> 
+            </li>
+            {% endif %}
+            {% if settings.home_banner_slide_visible_6 == true %}
+            <li class="royalSlide">
+                <img class="royalImage" src="{{ 'home_banner_slide_image_6.png' | asset_url }}" alt="{{settings.home_banner_slide_title_6 | escape}}" />
+                <div class="royalCaption {{settings.home_banner_slide_class_6}}">
+                    {% if settings.home_banner_slide_title_6 != "" %}<div class="royalCaptionItem title" data-show-effect="{{settings.home_banner_slide_title_show_effect_6}}" data-move-offset="{{settings.home_banner_slide_title_move_offset_6}}">{{settings.home_banner_slide_title_6}}</div>{% endif %}
+                    {% if settings.home_banner_slide_caption_6 != "" %}<div class="royalCaptionItem caption" data-show-effect="{{settings.home_banner_slide_caption_show_effect_6}}" data-move-offset="{{settings.home_banner_slide_caption_move_offset_6}}">{{settings.home_banner_slide_caption_6}}</div>{% endif %}
+                    {% if settings.home_banner_slide_link_text_6 != "" %}<a class="royalCaptionItem link btn btn-primary" data-show-effect="{{settings.home_banner_slide_link_show_effect_6}}" data-move-offset="{{settings.home_banner_slide_link_move_offset_6}}" href="{{settings.home_banner_slide_link_6}}" title="{{settings.home_banner_slide_link_text_6 | escape}}">{{settings.home_banner_slide_link_text_6}}</a>{% endif %}
+                </div> 
+            </li>
+            {% endif %}
+            {% if settings.home_banner_slide_visible_7 == true %}
+            <li class="royalSlide">
+                <img class="royalImage" src="{{ 'home_banner_slide_image_7.png' | asset_url }}" alt="{{settings.home_banner_slide_title_6 | escape}}" />
+                <div class="royalCaption {{settings.home_banner_slide_class_7}}">
+                    {% if settings.home_banner_slide_title_7 != "" %}<div class="royalCaptionItem title" data-show-effect="{{settings.home_banner_slide_title_show_effect_7}}" data-move-offset="{{settings.home_banner_slide_title_move_offset_7}}">{{settings.home_banner_slide_title_7}}</div>{% endif %}
+                    {% if settings.home_banner_slide_caption_7 != "" %}<div class="royalCaptionItem caption" data-show-effect="{{settings.home_banner_slide_caption_show_effect_7}}" data-move-offset="{{settings.home_banner_slide_caption_move_offset_7}}">{{settings.home_banner_slide_caption_7}}</div>{% endif %}
+                    {% if settings.home_banner_slide_link_text_7 != "" %}<a class="royalCaptionItem link btn btn-primary" data-show-effect="{{settings.home_banner_slide_link_show_effect_7}}" data-move-offset="{{settings.home_banner_slide_link_move_offset_7}}" href="{{settings.home_banner_slide_link_7}}" title="{{settings.home_banner_slide_link_text_7 | escape}}">{{settings.home_banner_slide_link_text_7}}</a>{% endif %}
+                </div> 
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+</section>
+{% endif %}
+
+<script>
+$(document).ready(function() {
+    $("#mySlider").royalSlider({
+        directionNavAutoHide: true,
+        imageScaleMode:"fill",
+        imageAlignCenter:true,
+        autoScaleSlider:true,
+        slideshowEnabled:true,
+        slideshowDelay:{% if settings.home_banner_slidedelay != "" %}{{settings.home_banner_slidedelay}}{% else %}5000{% endif %},
+        dragUsingMouse:{% if settings.home_banner_disable_mousedrag == true %}false{% else %}true{% endif %}
+    });  
+});
+</script>
+
+<style>
+    #mySlider {
+		width: 100%;			
+		height: 400px;
+	}
+</style>
+{% if settings.home_layout == "1" %}
+<section id="side_feature">
+	<div class="row-right">
+		<section id="feature_products" class="span-two-thirds">
+			<div class="row">
+				{% for product in collections[settings.frontpage_collection].products %}
+        	    {% capture rowmid %}{% cycle 1,2 %}{% endcapture %}
+                {% capture rowend %}{% cycle 1,2,3,4 %}{% endcapture %}
+				<article class="product span8">
+                {% if product.compare_at_price_max > product.price %}
+        			<div class="sale">
+						<div class="sale_flag">
+							<span class="sale_price left">{{ product.price_min | money }}</span>
+							<span class="sale_divider left"></span>
+							<span class="sale_txt left">Sale</span>
+							<div class="clr"></div>
+						</div>
+					</div>                                
+                {% endif %}
+				  <div class="product_wrap">
+						<a href="{{ product.url }}" title="{{ product.title }}">
+							<img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ product.title | escape }}" />
+						</a>
+						<div class="title_price">
+							<h3>{{ product.title }}</h3>
+                            {% if product.compare_at_price_max > product.price %}
+                            <span class="price old_price right">{{ product.compare_at_price_max | money }}</span>
+                            {% else %}
+                            <span class="price right">{{ product.price | money }}</span>  
+                            {% endif %}
+							<div class="clr"></div>
+						</div>
+						<div class="details">
+							<a href="{{ product.url }}">
+                                <h3>{{ product.title }}</h3>
+							    <p>{{ product.description | truncatewords: 15 | strip_html }}</p>
+                            </a>
+                            <div class="btn-group addtocart right">
+                                <form action="/cart/add" method="post">
+                                <input type="hidden" id="{{ variant.id }}" name="id" value="{{ product.variants[0].id }}" />
+                                <button type="submit" name="add" class="btn btn-primary btn-addtocart">Add to Cart</button>
+                                <button type="submit" name="add" class="btn btn-primary btn_price">{{ product.price | money }}</button>
+                                </form>
+                            </div>
+							<div class="clr"></div>
+						</div>
+					</div>
+				</article>
+                {% if rowmid == "2" %}<div class="clearspn clr"></div>{% endif %}
+				{% endfor %}
+			</div>
+		</section>
+        {% if settings.home_sidebar_visible == true %}
+		<aside id="sidebar" class="span-one-third">
+			<div class="row">
+				{% if settings.text_widget_visible == true %}
+                <section class="widget span16">
+					 <header>
+						<h2>{{ settings.text_widget_title }}</h2>
+					</header>
+					<article>
+                    <p>{{ pages[settings.text_widget_page].content | strip_html | truncatewords : settings.text_widget_word_limit }}</p>
+					{% if settings.text_widget_link != "" %}
+                    <div class="clr"></div>
+                    <a href="{{ settings.text_widget_link }}" class="btn btn-primary">{{ settings.text_widget_link_text }}</a>
+    				{% endif %}
+					</article>
+				</section>
+                {% endif %}
+                {% if settings.blog_widget_visible == true %}
+				<section class="widget span16">
+					<header>
+						<h2>{{ settings.blog_widget_title }}</h2>
+				    </header>
+                    {% for article in blogs[settings.blog_widget_blog].articles limit:settings.blog_widget_article_limit %}
+					<article class="blogentry">
+					<h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
+					<div class="date">{{ article.published_at | date: "%B %d, %Y" }}</div>
+					{% capture readmore %}<br /><a href="{{ article.url }}">Read More</a>{% endcapture %}
+                    <p>{{ article.content | truncatewords: settings.blog_widget_word_limit | append: readmore }}</p>
+					</article>
+                    {% endfor %}
+				</section>
+                {% endif %}
+                {% if settings.twitter_widget_visible == true %}
+				<section class="widget span16">
+					 <header>
+						<h2>{{ settings.twitter_widget_title }}</h2>
+					</header>
+					<div class="sidebar_tweets"><ul class="tweet_list"></ul></div>
+                    {% if settings.twitter_widget_link_visible == true %}
+                    <a href="{{ settings.twitter_widget_link }}" class="btn btn-primary" target="_blank">{{ settings.twitter_widget_link_text }}</a>
+                    {% endif %}
+				</section>
+                {% endif %}
+                {% if settings.linklist_widget_visible == true %}
+    			<section class="widget span16">
+					 <header>
+						<h2>{{ settings.linklist_widget_title }}</h2>
+					</header>
+					<article>
+                        <ul class="widget_linklist">
+                            {% for link in linklists[settings.linklist_widget_linklist].links %}
+        				    {% comment %}<li {% if link.active %} class="current"{% endif %}><a href="{{ link.url }}">{{ link.title }}</a></li>{% endcomment %}
+                        
+                            <li{% if forloop.first %} class="first"{% endif %}>
+                                <a{% if current %} class="active"{% endif %} href="{{ link.url }}">{{ link.title }}</a>
+                                {% capture child_list_handle %}{{ link.title | handle }}{% endcapture %}
+                                {% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
+                                <ul>
+                                  {% for l in linklists[child_list_handle].links %}
+                                  <li><a href="{{ l.url }}">{{ l.title }}</a></li>
+                                  {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </li>
+                            {% endfor %}
+                        </ul>
+					</article>
+				</section>
+                {% endif %}
+			</div>            
+		</aside>
+        {% endif %}
+		</div>
+</section>
+{% endif %}
+{% if settings.home_layout == "2" %}
+<!--// 3 column and 4 column layouts are in here //-->
+<section id="feature_products">
+	<div class="row">            
+		{% for product in collections[settings.frontpage_collection].products %}
+    		{% capture rowmid %}{% cycle 1,2 %}{% endcapture %}
+            {% capture rowend %}{% cycle 1,2,3,4 %}{% endcapture %}
+                <article class="product span4">
+                {% if product.compare_at_price_max > product.price %}
+        			<div class="sale">
+						<div class="sale_flag">
+							<span class="sale_price left">{{ product.price_min | money }}</span>
+							<span class="sale_divider left"></span>
+							<span class="sale_txt left">Sale</span>
+							<div class="clr"></div>
+						</div>
+					</div>                                
+                {% endif %}
+				  <div class="product_wrap">
+						<a href="{{ product.url }}" title="{{ product.title }}">
+							<img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ product.title | escape }}" />
+						</a>
+						<div class="title_price">
+							<h3>{{ product.title }}</h3>
+                            
+                            {% if product.compare_at_price_max > product.price %}
+                            <span class="price old_price right">{{ product.compare_at_price_max | money }}</span>
+                            {% else %}
+                            <span class="price right">{{ product.price | money }}</span>  
+                            {% endif %}
+							<div class="clr"></div>
+						</div>
+						<div class="details">
+							<a href="{{ product.url }}">
+                                <h3>{{ product.title }}</h3>
+							    <p>{{ product.description | truncatewords: 10 | strip_html }}</p>
+                            </a>
+                            <div class="btn-group addtocart right">
+                                <form action="/cart/add" method="post">
+                                <input type="hidden" id="{{ variant.id }}" name="id" value="{{ product.variants[0].id }}" />
+                                <button type="submit" name="add" class="btn btn-primary btn-addtocart">Add to Cart</button>
+                                <button type="submit" name="add" class="btn btn-primary btn_price">{{ product.price | money }}</button>
+                                </form>
+                            </div>
+                            <div class="clr"></div>
+						</div>
+					</div>
+				</article>
+                {% if rowend == "4" %}<div class="clr"></div>{% endif %}
+                {% if rowmid == "2" %}<div class="clearspn clr"></div>{% endif %}
+				{% endfor %}
+	</div>
+        <aside id="sidebar" class="container">
+			<div class="row">	
+                {% if settings.text_widget_visible == true %}
+                <section class="widget span8">
+					 <header>
+						<h2>{{ settings.text_widget_title }}</h2>
+					</header>
+					<article>
+                    <p>{{ pages[settings.text_widget_page].content | strip_html | truncatewords : settings.text_widget_word_limit }}</p>
+					{% if settings.text_widget_link != "" %}
+                    <div class="clr"></div>
+                    <a href="{{ settings.text_widget_link }}" class="btn btn-primary">{{ settings.text_widget_link_text }}</a>
+    				{% endif %}
+					</article>
+				</section>
+                {% endif %}
+                {% if settings.blog_widget_visible == true %}
+				<section class="widget span8">
+					<header>
+						<h2>{{ settings.blog_widget_title }}</h2>
+				    </header>
+                    {% for article in blogs[settings.blog_widget_blog].articles limit:settings.blog_widget_article_limit %}
+					<article class="blogentry">
+					<h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
+					<div class="date">{{ article.published_at | date: "%B %d, %Y" }}</div>
+					{% capture readmore %}<br /><a href="{{ article.url }}">Read More</a>{% endcapture %}
+                    <p>{{ article.content | truncatewords: settings.blog_widget_word_limit | append: readmore }}</p>
+    				</article>
+                    {% endfor %}
+				</section>
+                {% endif %}
+                {% if settings.twitter_widget_visible == true %}
+				<section class="widget span8">
+					 <header>
+						<h2>{{ settings.twitter_widget_title }}</h2>
+					</header>
+                    <div class="sidebar_tweets"><ul class="tweet_list"></ul></div>
+                    {% if settings.twitter_widget_link_visible == true %}
+                    <a href="{{ settings.twitter_widget_link }}" class="btn btn-primary" target="_blank">{{ settings.twitter_widget_link_text }}</a>
+                    {% endif %}
+				</section>
+                {% endif %}
+                {% if settings.linklist_widget_visible == true %}
+    			<section class="widget span8">
+					 <header>
+						<h2>{{ settings.linklist_widget_title }}</h2>
+					</header>
+					<article>
+                        <ul class="widget_linklist">
+                            {% for link in linklists[settings.linklist_widget_linklist].links %}
+        				    {% comment %}<li {% if link.active %} class="current"{% endif %}><a href="{{ link.url }}">{{ link.title }}</a></li>{% endcomment %}
+                        
+                            <li{% if forloop.first %} class="first"{% endif %}>
+                                <a{% if current %} class="active"{% endif %} href="{{ link.url }}">{{ link.title }}</a>
+                                {% capture child_list_handle %}{{ link.title | handle }}{% endcapture %}
+                                {% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
+                                <ul>
+                                  {% for l in linklists[child_list_handle].links %}
+                                  <li><a href="{{ l.url }}">{{ l.title }}</a></li>
+                                  {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </li>
+                            {% endfor %}
+                        </ul>
+					</article>
+				</section>
+                {% endif %}  
+            </div>
+		</aside>
+</section>
+{% endif %}
+{% if settings.home_layout == "3" %}
+{% comment %} 3 column layout {% endcomment %}
+<section id="feature_products">
+    <div class="row">            
+		{% for product in collections[settings.frontpage_collection].products %}
+    		{% capture rowmid %}{% cycle 1,2 %}{% endcapture %}
+            {% capture rowend %}{% cycle 1,2,3 %}{% endcapture %}
+                <article class="product span-one-third">
+                {% if product.compare_at_price_max > product.price %}
+        			<div class="sale">
+						<div class="sale_flag">
+							<span class="sale_price left">{{ product.price_min | money }}</span>
+							<span class="sale_divider left"></span>
+							<span class="sale_txt left">Sale</span>
+							<div class="clr"></div>
+						</div>
+					</div>                                
+                {% endif %}
+				  <div class="product_wrap">
+						<a href="{{ product.url }}" title="{{ product.title }}">
+							<img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ product.title | escape }}" />
+						</a>
+						<div class="title_price">
+							<h3>{{ product.title }}</h3>
+                            {% if product.compare_at_price_max > product.price %}
+                            <span class="price old_price right">{{ product.compare_at_price_max | money }}</span>
+                            {% else %}
+                            <span class="price right">{{ product.price | money }}</span>  
+                            {% endif %}
+							<div class="clr"></div>
+						</div>
+						<div class="details">
+							<a href="{{ product.url }}">
+                                <h3>{{ product.title }}</h3>
+							    <p>{{ product.description | truncatewords: 15 | strip_html }}</p>
+                            </a>
+                            <div class="btn-group addtocart right">
+                                <form action="/cart/add" method="post">
+                                <input type="hidden" id="{{ variant.id }}" name="id" value="{{ product.variants[0].id }}" />
+                                <button type="submit" name="add" class="btn btn-primary btn-addtocart">Add to Cart</button>
+                                <button type="submit" name="add" class="btn btn-primary btn_price">{{ product.price | money }}</button>
+                                </form>
+                            </div>
+                            <div class="clr"></div>
+						</div>
+					</div>
+				</article>
+                {% if rowend == "3" %}<div class="clearspn3 clr"></div>{% endif %}
+                {% if rowmid == "2" %}<div class="clearspn clr"></div>{% endif %}
+				{% endfor %}
+	</div>
+        <aside id="sidebar" class="container">
+			<div class="row">	
+                {% if settings.text_widget_visible == true %}
+                <section class="widget span-one-third">
+					 <header>
+						<h2>{{ settings.text_widget_title }}</h2>
+					</header>
+					<article>
+                    <p>{{ pages[settings.text_widget_page].content | strip_html | truncatewords : settings.text_widget_word_limit }}</p>
+					{% if settings.text_widget_link != "" %}
+                    <div class="clr"></div>
+                    <a href="{{ settings.text_widget_link }}" class="btn btn-primary">{{ settings.text_widget_link_text }}</a>
+    				{% endif %}
+					</article>
+				</section>
+                {% endif %}
+                {% if settings.blog_widget_visible == true %}
+				<section class="widget span-one-third">
+					<header>
+						<h2>{{ settings.blog_widget_title }}</h2>
+				    </header>
+                    {% for article in blogs[settings.blog_widget_blog].articles limit:settings.blog_widget_article_limit %}
+					<article class="blogentry">
+					<h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
+					<div class="date">{{ article.published_at | date: "%B %d, %Y" }}</div>
+					{% capture readmore %}<br /><a href="{{ article.url }}">Read More</a>{% endcapture %}
+                    <p>{{ article.content | truncatewords: settings.blog_widget_word_limit | append: readmore }}</p>
+    				</article>
+                    {% endfor %}
+				</section>
+                {% endif %}
+                {% if settings.twitter_widget_visible == true %}
+				<section class="widget span-one-third">
+					 <header>
+						<h2>{{ settings.twitter_widget_title }}</h2>
+					</header>
+					<div class="sidebar_tweets"><ul class="tweet_list"></ul></div>
+                    {% if settings.twitter_widget_link_visible == true %}
+                    <a href="{{ settings.twitter_widget_link }}" class="btn btn-primary" target="_blank">{{ settings.twitter_widget_link_text }}</a>
+                    {% endif %}
+				</section>
+                {% endif %}
+                {% if settings.linklist_widget_visible == true %}
+    			<section class="widget span-one-third">
+					 <header>
+						<h2>{{ settings.linklist_widget_title }}</h2>
+					</header>
+					<article>
+                        <ul class="widget_linklist">
+                            {% for link in linklists[settings.linklist_widget_linklist].links %}
+        				    {% comment %}<li {% if link.active %} class="current"{% endif %}><a href="{{ link.url }}">{{ link.title }}</a></li>{% endcomment %}
+                        
+                            <li{% if forloop.first %} class="first"{% endif %}>
+                                <a{% if current %} class="active"{% endif %} href="{{ link.url }}">{{ link.title }}</a>
+                                {% capture child_list_handle %}{{ link.title | handle }}{% endcapture %}
+                                {% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
+                                <ul>
+                                  {% for l in linklists[child_list_handle].links %}
+                                  <li><a href="{{ l.url }}">{{ l.title }}</a></li>
+                                  {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </li>
+                            {% endfor %}
+                        </ul>
+					</article>
+				</section>
+                {% endif %}  
+            </div>
+		</aside>
+    </section>
+{% endif %}

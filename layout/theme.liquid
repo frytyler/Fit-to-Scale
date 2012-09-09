@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" dir="ltr" lang="en-US" xmlns:og="http://ogp.me/ns#"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" dir="ltr" lang="en-US" xmlns:og="http://ogp.me/ns#"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" dir="ltr" lang="en-US" xmlns:og="http://ogp.me/ns#"> <![endif]-->
+<html>
+<head>
+
+<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+{% include 'shop-description' %}
+{% if template == "index" %}
+	<title>{{ shop.name  }}</title>
+{% elsif template contains "404" %}
+	<title>Page Not Found</title>
+{% else %}
+	<title>{{ page_title | escape }} | {{ shop.name }}</title>
+{% endif %}  
+
+{% assign maxmeta = 155 %}
+{% if template contains 'product' %}
+	<meta name="description" content="{{ product.description | strip_html | strip_newlines | truncate: maxmeta | escape }}" />
+{% elsif template contains 'page' %}
+	<meta name="description" content="{{ page.content | strip_html | strip_newlines | truncate: maxmeta | escape }}" />
+{% elsif template == 'index' and shop.description != '' %}
+	<meta name="description" content="{{ shop.description | strip_html | strip_newlines | truncate: maxmeta | escape}}" />
+{% endif %}
+
+<link rel="canonical" href="{{ canonical_url }}" /> 
+
+{{ 'royalslider.css' | asset_url | stylesheet_tag }}
+{{ 'stylesheet.css' | asset_url | stylesheet_tag }}
+{{ 'jquery.fancybox.css' | asset_url | stylesheet_tag }}
+{% if settings.home_banner_header_font or settings.header_font or settings.general_font == "'Arimo', sans-serif" %}
+{{ 'http://fonts.googleapis.com/css?family=Arimo:400,700,400italic,700italic' | stylesheet_tag }}
+{% endif %}
+{% if settings.home_banner_header_font or settings.header_font or settings.general_font == "'Cabin', sans-serif" %}
+{{ 'http://fonts.googleapis.com/css?family=Cabin:400,600,500italic' | stylesheet_tag }}
+{% endif %}
+
+{{ 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js' | script_tag }}
+{{ 'modernizr-2.0.6.js' | asset_url | script_tag }}
+{{ 'option_selection.js' | asset_url | script_tag }}
+{{ 'jquery.fancybox.pack.js' | asset_url | script_tag }}
+
+{{ 'royalslider-default.css' | asset_url | stylesheet_tag }}
+{{ 'jquery.easing.1.3.min.js' | asset_url | script_tag }}
+{{ 'royal-slider-8.1.min.js' | asset_url | script_tag }}
+{{ 'jquery.uniform.min.js' | asset_url | script_tag }}
+{{ 'pretty.js' | asset_url | script_tag }}
+{% if template contains 'customers' %}
+    {{ "shopify_common.js" | shopify_asset_url | script_tag }}
+    {{ "customer_area.js"  | shopify_asset_url | script_tag }}
+{% endif %}
+
+
+{{ content_for_header }}
+
+</head>
+
+<body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div id="menu_trigger_outside" class="icon_menu"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></div>
+
+<div class="page_wrap">    
+    <header id="header">
+        <nav id="topnav" class="right">
+            <ul>
+            	<li id="menu_trigger"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></li>
+                {% if shop.customer_accounts_enabled %}
+                {% if customer %}
+                <li><a href="/account">Hello, {{ customer.first_name }}</a></li>
+                {% endif %}
+                {% endif %}
+                {% if shop.customer_accounts_enabled %}
+                <li>
+                {% if customer  %}
+                    {{ '<span class="icon icon_account"></span>Logout' | customer_logout_link }}
+                {% else %}
+                    {{ '<span class="icon icon_account"></span>Login' | customer_login_link }}
+                {% endif %}
+                </li>
+                {% endif %}
+                <li><a href="/cart" class="left"><span class="icon icon_cart"></span>Cart</a>
+                
+                <div class="cart_empty {% if cart.item_count > 0 %}cart_notify{% endif %} left">
+                {% if cart.item_count > 0 %}
+                <a href="#" class="cart_trigger">{{ cart.item_count }}</a>
+                	<div class="triangle"></div>
+                    <div class="cart {% if shop.customer_accounts_enabled %}customer_endabled{% endif %} {% if customer %}customer{% endif %}">
+                    	<div class="inside_top">
+                       		<h3>In Your Cart</h3>
+                            <span>( <span class="qty">{{ cart.item_count }}</span> {% if cart.item_count == 1 %}item{% else %}items{% endif %} )</span>
+                            <a href="/checkout" class="btn btn-primary right">Check Out</a>
+                            <div class="clr"></div>
+                        </div>
+                        <div class="inside">
+                        	{% for item in cart.items %}
+                            <article class="cart_item">
+                            	<figure class="left"><a href="{{ item.product.url | within: collections.all }}"><img src="{{ item.product.images[0] | product_img_url: "icon" }}" alt="{{ item.title | escape }}" /></a></figure>
+                                <span class="title left">{{ item.product.title | truncate: 20 }}</span>
+                                <span class="qty left">Qty {{ item.quantity }}</span>
+                                <span class="price right">{{ item.price | money }}</span>
+                                <div class="clr"></div>
+                            </article>
+                            {% endfor %}
+                            <div class="total right">
+                            	<span class="title">Total:</span>
+                                <span class="price">{{ cart.total_price | money }}</span>
+                            </div>
+                            <div class="clr"></div>
+                        </div>
+                    </div>
+                {% else %}
+                <a href="/cart">{{ cart.item_count }}</a>
+                {% endif %}
+                </div>
+                <div class="clr"></div>
+                </li>
+                <li {% if customer %} class="hidden-phone-verticle"{% endif %}><a href="/checkout"><span class="icon icon_checkout"></span>Check Out</a></li>
+            </ul>
+        </nav>
+        <div class="search right">
+            <form action="/search" method="get">
+            <input type="search" class="left" placeholder="Search" name="q" id="q" />
+            <button type="submit" class="icon icon_search right"></button>
+            </form>
+            <div class="clr"></div>
+        </div>
+        <div class="clr"></div>
+        <div class="grid_16 logo">
+        {% if settings.shoplogo_enabled == true %}
+            <a class="shoplogo" href="{{ shop.url }}"><h1><img src="{{ 'shoplogo.png' | asset_url }}" /></h1></a>
+        {% else %}
+            <a class="shoplogo" href="{{ shop.url }}"><h1>{{ shop.name }}</h1></a>
+        {% endif %}
+        </div>
+    	<nav id="mainnav">
+        	<ul>
+    			{% comment %}{% for link in linklists[settings.mainmenu_linklist].links %}
+					<li {% if link.active %} class="current"{% endif %}><a href="{{ link.url }}">{{ link.title }}</a></li>{% endfor %}{% endcomment %}
+                {% for link in linklists[settings.mainmenu_linklist].links %}
+                {% capture child_list_handle %}{{ link.title | handle }}{% endcapture %}
+                <li class="{% if forloop.first %}first {% endif %}{% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}dropdown {% endif %}">
+                    <a class="{% if link.active %}active {% endif %}{% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}drop {% endif %}" href="{{ link.url }}">{{ link.title }}</a>
+                    {% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
+                    <ul>
+                      {% for l in linklists[child_list_handle].links %}
+                      <li><a href="{{ l.url }}">{{ l.title }}</a></li>
+                      {% endfor %}
+                    </ul>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+            <div class="clr"></div>
+        </nav>
+    </header>
+    
+	{% if template == 'list-collections' %}
+    {% include 'collection-listing' %}
+    {% else %}
+    {{ content_for_layout }}
+    {% endif %}
+	
+</div> <!--// .page_wrap //-->
+
+<footer id="footer">
+    <div class="page_wrap">
+        <div class="row footer_inside">
+        	{% if settings.twitter_footer_widget_visible == true %}
+			<section class="widget span-one-third">
+				 <header>
+					<h2>{{ settings.twitter_footer_widget_title }}</h2>
+				</header>
+				<div class="footer_tweets"><ul class="tweet_list"></ul></div>
+                {% if settings.twitter_footer_widget_link_visible == true %}
+                <a href="{{ settings.twitter_footer_widget_link }}" class="btn btn-primary" target="_blank">{{ settings.twitter_footer_widget_link_text }}</a>
+                {% endif %}
+			</section>
+            {% endif %}
+            {% if settings.newsletter_footer_widget_visible == true %}
+        	<section class="widget span-one-third">
+				<header>
+                	<h2>{{ settings.newsletter_footer_widget_title }}</h2>
+              </header>
+                <p>{{ settings.newsletter_footer_widget_content }}</p>
+                {% form 'customer' %}
+                    <div class="subscribe row">
+                        <input type="hidden" id="contact_tags" name="contact[tags]" value="newsletter"/>
+                        <input type="email" id="contact_email" name="contact[email]" class="span10" required placeholder="E-mail Address" />
+                        <input type="submit"class="btn btn-primary btn-subscribe right" value="{{ settings.newsletter_footer_widget_link_text }}">
+                    </div>
+                {% endform %}
+            </section>
+            {% endif %}
+            <div class="clearspn clr"></div>
+        	{% if settings.contact_footer_widget_visible == true %}
+            <section class="widget span-one-third">
+				<header>
+                	<h2>{{ settings.contact_footer_widget_title }}</h2>
+                </header>
+                <div class="vcard">
+                    {% if settings.contact_footer_widget_logo == true %}
+                        <h3><img src="{{ 'shoplogo.png' | asset_url }}"></h3>
+                    {% else %}
+                    <h3>{{ settings.contact_footer_widget_companyname }}</h3>
+                    {% endif %}
+                    <p class="adr">
+                    {% if settings.contact_footer_widget_street != "" %}<span class="street-address">{{ settings.contact_footer_widget_street }}</span><br>{% endif %}
+                    {% if settings.contact_footer_widget_city != "" %}<span class="region">{{ settings.contact_footer_widget_city }}</span><br>{% endif %}
+                    {% if settings.contact_footer_widget_postalcode != "" %}<span class="postal-code">{{ settings.contact_footer_widget_postalcode }}</span><br>{% endif %}
+                    {% if settings.contact_footer_widget_country != "" %}<span class="country-name">{{ settings.contact_footer_widget_country }}</span>{% endif %}
+                    </p>
+                    {% if settings.contact_footer_widget_phonenumber != "" %}<p class="tel">{{ settings.contact_footer_widget_phonenumber }}</p>{% endif %}
+                    {% if settings.contact_footer_widget_email != "" %}<p class="email"><a href="mailto:{{ settings.contact_footer_widget_email }}?Subject=Hello">{{ settings.contact_footer_widget_email }}</a></p>{% endif %}
+                </div>
+            </section>
+            {% endif %}
+            {% if settings.socnet_footer_widget_visible == true %}
+            <section class="widget span-one-third">
+    			<header>
+                	<h2>{{ settings.socnet_footer_widget_title }}</h2>
+              </header>
+              <article>
+                  {% if settings.socnet_footer_widget_facebook != "" %} <a href="{{ settings.socnet_footer_widget_facebook }}" class="icons icon_facebook" target="_blank"></a>{% endif %}
+                  {% if settings.socnet_footer_widget_twitter != "" %} <a href="{{ settings.socnet_footer_widget_twitter }}" class="icons icon_twitter" target="_blank"></a>{% endif %}
+                  {% if settings.socnet_footer_widget_pinterest != "" %} <a href="{{ settings.socnet_footer_widget_pinterest }}" class="icons icon_pinterest" target="_blank"></a>{% endif %}
+                  {% if settings.socnet_footer_widget_youtube != "" %} <a href="{{ settings.socnet_footer_widget_youtube }}" class="icons icon_youtube" target="_blank"></a>{% endif %}
+                  {% if settings.socnet_footer_widget_flickr != "" %} <a href="{{ settings.socnet_footer_widget_flickr }}" class="icons icon_flickr" target="_blank"></a>{% endif %}
+                  {% if settings.socnet_footer_widget_vimeo != "" %} <a href="{{ settings.socnet_footer_widget_vimeo }}" class="icons icon_vimeo" target="_blank"></a>{% endif %}
+              </article>
+            </section>
+            {% endif %}
+        </div>
+    </div>
+</footer>
+<footer id="copyright">
+	<div class="page_wrap">
+    	<div class="row">
+        	<div class="span8 pay_options">
+            	{% if settings.footer_paypal == true %}<span class="icons icon_paypal"></span>{% endif %}
+            	{% if settings.footer_visa == true %}<span class="icons icon_visa"></span>{% endif %}
+            	{% if settings.footer_mastercard == true %}<span class="icons icon_mastercard"></span>{% endif %}
+            	{% if settings.footer_amex == true %}<span class="icons icon_amex"></span>{% endif %}
+            	{% if settings.footer_descover == true %}<span class="icons icon_discover"></span>{% endif %}
+            </div>
+            <div class="span8 info">
+            	{% if settings.footer_copyright == true %}{{ settings.footer_copyright_text }} {% endif %}| {{ powered_by_link }} {% if settings.footer_madeby != true %}| This theme was created by <a href="http://www.simplypx.com" target="_blank">Simply px</a>{% endif %}
+            </div>
+        </div>
+    </div>
+</footer>
+<script>
+$(document).ready(function(){
+	if(!Modernizr.input.placeholder){ $('[placeholder]').focus(function() { var input = $(this); if (input.val() == input.attr('placeholder')) { input.val(''); input.removeClass('placeholder'); } }).blur(function() { var input = $(this); if (input.val() == '' || input.val() == input.attr('placeholder')) { input.addClass('placeholder'); input.val(input.attr('placeholder')); }}).blur();	$('[placeholder]').parents('form').submit(function() {$(this).find('[placeholder]').each(function() {var input = $(this); if (input.val() == input.attr('placeholder')) { input.val(''); }})})}	
+    $('#menu_trigger').bind('click',function(){$('#mainnav').toggleClass('active');});
+	$('#menu_trigger_outside').bind('click',function(){$('#mainnav').toggleClass('active');});
+	$('html').click(function(){$('.triangle').hide(); $('.cart').hide(); });
+	$('.cart_trigger ').click(function(event){event.preventDefault();$('.triangle').slideToggle('fast');$('.cart').slideToggle('fast');event.stopPropagation();});
+    {% if settings.twitter_widget_visible == true %}
+    $.getJSON('http://api.twitter.com/1/statuses/user_timeline.json?callback=?&screen_name={{settings.twitter_widget_username}}&count={{settings.twitter_widget_tweet_limit}}',function(data){
+        var tweets = data;
+        $.each(tweets,function(key,tweet){
+            $('.sidebar_tweets .tweet_list').append('<li><div class="tweet_avatar"><img src="'+tweet.user.profile_image_url+'" /></div><div class="tweet"><span class="name">'+tweet.user.name+'</span>  <span class="username"><a href="http://twitter.com/'+tweet.user.screen_name+'" target="_blank">@'+tweet.user.screen_name+'</a></span><br />'+findurls(tweet.text)+'<br /><span class="date">'+prettyDate(tweet.created_at)+'</span></div><div class="clr"></div></li>');
+        });
+    });
+    {% endif %}
+    {% if settings.twitter_footer_widget_visible == true %}
+    $.getJSON('http://api.twitter.com/1/statuses/user_timeline.json?callback=?&screen_name={{settings.twitter_footer_widget_username}}&count={{settings.twitter_footer_widget_tweet_limit}}',function(data){
+        var tweets = data;
+        $.each(tweets,function(key,tweet){
+            $('.footer_tweets .tweet_list').append('<li><div class="tweet_avatar"><img src="'+tweet.user.profile_image_url+'" /></div><div class="tweet"><span class="name">'+tweet.user.name+'</span>  <span class="username"><a href="http://twitter.com/'+tweet.user.screen_name+'" target="_blank">@'+tweet.user.screen_name+'</a></span><br />'+findurls(tweet.text)+'<br /><span class="date">'+prettyDate(tweet.created_at)+'</span></div><div class="clr"></div></li>');
+        });
+    });
+    {% endif %}
+});
+function findurls(str){
+    var re = /((http|https|ftp):\/\/[\w?=&.\/-;#~%-]+(?![\w\s?&.\/;#~%"=-]*>))/g;
+    return str.replace(re, '<a href="$1" target="_blank">$1</a>');
+}
+</script>
+<script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
+</body>
+</html>

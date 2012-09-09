@@ -5,7 +5,7 @@
         <ul class="royalSlidesContainer">
             {% if settings.home_banner_slide_visible_1 == true %}
             <li class="royalSlide">
-    		    <img class="royalImage" src="{{ 'home_banner_slide_image_1' | asset_url }}" alt="{{settings.home_banner_slide_title_1 | escape}}" />
+    		    <img class="royalImage" src="{{ 'home_banner_slide_image_1.png' | asset_url }}" alt="{{settings.home_banner_slide_title_1 | escape}}" />
                 <div class="royalCaption {{settings.home_banner_slide_class_1}}">
                     {% if settings.home_banner_slide_title_1 != "" %}<div class="royalCaptionItem title" data-show-effect="{{settings.home_banner_slide_title_show_effect_1}}" data-move-offset="{{settings.home_banner_slide_title_move_offset_1}}">{{settings.home_banner_slide_title_1}}</div>{% endif %}
                     {% if settings.home_banner_slide_caption_1 != "" %}<div class="royalCaptionItem caption" data-show-effect="{{settings.home_banner_slide_caption_show_effect_1}}" data-move-offset="{{settings.home_banner_slide_caption_move_offset_1}}">{{settings.home_banner_slide_caption_1}}</div>{% endif %}
@@ -119,7 +119,7 @@ $(document).ready(function() {
                 {% endif %}
 				  <div class="product_wrap">
 						<a href="{{ product.url }}" title="{{ product.title }}">
-							<img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ product.title | escape }}" />
+							<img src="{{ product.featured_image | product_img_url: 'grande' }}" alt="{{ product.title | escape }}" />
 						</a>
 						<div class="title_price">
 							<h3>{{ product.title }}</h3>
@@ -245,7 +245,7 @@ $(document).ready(function() {
                 {% endif %}
 				  <div class="product_wrap">
 						<a href="{{ product.url }}" title="{{ product.title }}">
-							<img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ product.title | escape }}" />
+							<img src="{{ product.featured_image | product_img_url: 'grande' }}" alt="{{ product.title | escape }}" />
 						</a>
 						<div class="title_price">
 							<h3>{{ product.title }}</h3>
@@ -369,7 +369,7 @@ $(document).ready(function() {
                 {% endif %}
 				  <div class="product_wrap">
 						<a href="{{ product.url }}" title="{{ product.title }}">
-							<img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ product.title | escape }}" />
+							<img src="{{ product.featured_image | product_img_url: 'grande' }}" alt="{{ product.title | escape }}" />
 						</a>
 						<div class="title_price">
 							<h3>{{ product.title }}</h3>

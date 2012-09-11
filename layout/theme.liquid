@@ -6,26 +6,26 @@
 <head>
 
 <!--[if lt IE 9]>
-	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
 <![endif]-->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
 {% include 'shop-description' %}
 {% if template == "index" %}
-	<title>{{ shop.name  }}</title>
+    <title>{{ shop.name  }}</title>
 {% elsif template contains "404" %}
-	<title>Page Not Found</title>
+    <title>Page Not Found</title>
 {% else %}
-	<title>{{ page_title | escape }} | {{ shop.name }}</title>
+    <title>{{ page_title | escape }} | {{ shop.name }}</title>
 {% endif %}  
 
 {% assign maxmeta = 155 %}
 {% if template contains 'product' %}
-	<meta name="description" content="{{ product.description | strip_html | strip_newlines | truncate: maxmeta | escape }}" />
+    <meta name="description" content="{{ product.description | strip_html | strip_newlines | truncate: maxmeta | escape }}" />
 {% elsif template contains 'page' %}
-	<meta name="description" content="{{ page.content | strip_html | strip_newlines | truncate: maxmeta | escape }}" />
+    <meta name="description" content="{{ page.content | strip_html | strip_newlines | truncate: maxmeta | escape }}" />
 {% elsif template == 'index' and shop.description != '' %}
-	<meta name="description" content="{{ shop.description | strip_html | strip_newlines | truncate: maxmeta | escape}}" />
+    <meta name="description" content="{{ shop.description | strip_html | strip_newlines | truncate: maxmeta | escape}}" />
 {% endif %}
 
 <link rel="canonical" href="{{ canonical_url }}" /> 
@@ -76,7 +76,7 @@
     <header id="header">
         <nav id="topnav" class="right">
             <ul>
-            	<li id="menu_trigger"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></li>
+                <li id="menu_trigger"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></li>
                 {% if shop.customer_accounts_enabled %}
                 {% if customer %}
                 <li><a href="/account">Hello, {{ customer.first_name }}</a></li>
@@ -96,18 +96,18 @@
                 <div class="cart_empty {% if cart.item_count > 0 %}cart_notify{% endif %} left">
                 {% if cart.item_count > 0 %}
                 <a href="#" class="cart_trigger">{{ cart.item_count }}</a>
-                	<div class="triangle"></div>
+                    <div class="triangle"></div>
                     <div class="cart {% if shop.customer_accounts_enabled %}customer_endabled{% endif %} {% if customer %}customer{% endif %}">
-                    	<div class="inside_top">
-                       		<h3>In Your Cart</h3>
+                        <div class="inside_top">
+                            <h3>In Your Cart</h3>
                             <span>( <span class="qty">{{ cart.item_count }}</span> {% if cart.item_count == 1 %}item{% else %}items{% endif %} )</span>
                             <a href="/checkout" class="btn btn-primary right">Check Out</a>
                             <div class="clr"></div>
                         </div>
                         <div class="inside">
-                        	{% for item in cart.items %}
+                            {% for item in cart.items %}
                             <article class="cart_item">
-                            	<figure class="left"><a href="{{ item.product.url | within: collections.all }}"><img src="{{ item.product.images[0] | product_img_url: "icon" }}" alt="{{ item.title | escape }}" /></a></figure>
+                                <figure class="left"><a href="{{ item.product.url | within: collections.all }}"><img src="{{ item.product.images[0] | product_img_url: "icon" }}" alt="{{ item.title | escape }}" /></a></figure>
                                 <span class="title left">{{ item.product.title | truncate: 20 }}</span>
                                 <span class="qty left">Qty {{ item.quantity }}</span>
                                 <span class="price right">{{ item.price | money }}</span>
@@ -115,7 +115,7 @@
                             </article>
                             {% endfor %}
                             <div class="total right">
-                            	<span class="title">Total:</span>
+                                <span class="title">Total:</span>
                                 <span class="price">{{ cart.total_price | money }}</span>
                             </div>
                             <div class="clr"></div>
@@ -145,10 +145,10 @@
             <a class="shoplogo" href="{{ shop.url }}"><h1>{{ shop.name }}</h1></a>
         {% endif %}
         </div>
-    	<nav id="mainnav">
-        	<ul>
-    			{% comment %}{% for link in linklists[settings.mainmenu_linklist].links %}
-					<li {% if link.active %} class="current"{% endif %}><a href="{{ link.url }}">{{ link.title }}</a></li>{% endfor %}{% endcomment %}
+        <nav id="mainnav">
+            <ul>
+                {% comment %}{% for link in linklists[settings.mainmenu_linklist].links %}
+                    <li {% if link.active %} class="current"{% endif %}><a href="{{ link.url }}">{{ link.title }}</a></li>{% endfor %}{% endcomment %}
                 {% for link in linklists[settings.mainmenu_linklist].links %}
                 {% capture child_list_handle %}{{ link.title | handle }}{% endcapture %}
                 <li class="{% if forloop.first %}first {% endif %}{% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}dropdown {% endif %}">
@@ -167,32 +167,32 @@
         </nav>
     </header>
     
-	{% if template == 'list-collections' %}
+    {% if template == 'list-collections' %}
     {% include 'collection-listing' %}
     {% else %}
     {{ content_for_layout }}
     {% endif %}
-	
+    
 </div> <!--// .page_wrap //-->
 
 <footer id="footer">
     <div class="page_wrap">
         <div class="row footer_inside">
-        	{% if settings.twitter_footer_widget_visible == true %}
-			<section class="widget span-one-third">
-				 <header>
-					<h2>{{ settings.twitter_footer_widget_title }}</h2>
-				</header>
-				<div class="footer_tweets"><ul class="tweet_list"></ul></div>
+            {% if settings.twitter_footer_widget_visible == true %}
+            <section class="widget span-one-third">
+                 <header>
+                    <h2>{{ settings.twitter_footer_widget_title }}</h2>
+                </header>
+                <div class="footer_tweets"><ul class="tweet_list"></ul></div>
                 {% if settings.twitter_footer_widget_link_visible == true %}
                 <a href="{{ settings.twitter_footer_widget_link }}" class="btn btn-primary" target="_blank">{{ settings.twitter_footer_widget_link_text }}</a>
                 {% endif %}
-			</section>
+            </section>
             {% endif %}
             {% if settings.newsletter_footer_widget_visible == true %}
-        	<section class="widget span-one-third">
-				<header>
-                	<h2>{{ settings.newsletter_footer_widget_title }}</h2>
+            <section class="widget span-one-third">
+                <header>
+                    <h2>{{ settings.newsletter_footer_widget_title }}</h2>
               </header>
                 <p>{{ settings.newsletter_footer_widget_content }}</p>
                 {% form 'customer' %}
@@ -205,10 +205,10 @@
             </section>
             {% endif %}
             <div class="clearspn clr"></div>
-        	{% if settings.contact_footer_widget_visible == true %}
+            {% if settings.contact_footer_widget_visible == true %}
             <section class="widget span-one-third">
-				<header>
-                	<h2>{{ settings.contact_footer_widget_title }}</h2>
+                <header>
+                    <h2>{{ settings.contact_footer_widget_title }}</h2>
                 </header>
                 <div class="vcard">
                     {% if settings.contact_footer_widget_logo == true %}
@@ -229,8 +229,8 @@
             {% endif %}
             {% if settings.socnet_footer_widget_visible == true %}
             <section class="widget span-one-third">
-    			<header>
-                	<h2>{{ settings.socnet_footer_widget_title }}</h2>
+                <header>
+                    <h2>{{ settings.socnet_footer_widget_title }}</h2>
               </header>
               <article>
                   {% if settings.socnet_footer_widget_facebook != "" %} <a href="{{ settings.socnet_footer_widget_facebook }}" class="icons icon_facebook" target="_blank"></a>{% endif %}
@@ -246,28 +246,28 @@
     </div>
 </footer>
 <footer id="copyright">
-	<div class="page_wrap">
-    	<div class="row">
-        	<div class="span8 pay_options">
-            	{% if settings.footer_paypal == true %}<span class="icons icon_paypal"></span>{% endif %}
-            	{% if settings.footer_visa == true %}<span class="icons icon_visa"></span>{% endif %}
-            	{% if settings.footer_mastercard == true %}<span class="icons icon_mastercard"></span>{% endif %}
-            	{% if settings.footer_amex == true %}<span class="icons icon_amex"></span>{% endif %}
-            	{% if settings.footer_descover == true %}<span class="icons icon_discover"></span>{% endif %}
+    <div class="page_wrap">
+        <div class="row">
+            <div class="span8 pay_options">
+                {% if settings.footer_paypal == true %}<span class="icons icon_paypal"></span>{% endif %}
+                {% if settings.footer_visa == true %}<span class="icons icon_visa"></span>{% endif %}
+                {% if settings.footer_mastercard == true %}<span class="icons icon_mastercard"></span>{% endif %}
+                {% if settings.footer_amex == true %}<span class="icons icon_amex"></span>{% endif %}
+                {% if settings.footer_descover == true %}<span class="icons icon_discover"></span>{% endif %}
             </div>
             <div class="span8 info">
-            	{% if settings.footer_copyright == true %}{{ settings.footer_copyright_text }} {% endif %}| {{ powered_by_link }} {% if settings.footer_madeby != true %}| This theme was created by <a href="http://www.simplypx.com" target="_blank">Simply px</a>{% endif %}
+                {% if settings.footer_copyright == true %}{{ settings.footer_copyright_text }} {% endif %}| {{ powered_by_link }} {% if settings.footer_madeby != true %}| This theme was created by <a href="http://www.simplypx.com" target="_blank">Simply px</a>{% endif %}
             </div>
         </div>
     </div>
 </footer>
 <script>
 $(document).ready(function(){
-	if(!Modernizr.input.placeholder){ $('[placeholder]').focus(function() { var input = $(this); if (input.val() == input.attr('placeholder')) { input.val(''); input.removeClass('placeholder'); } }).blur(function() { var input = $(this); if (input.val() == '' || input.val() == input.attr('placeholder')) { input.addClass('placeholder'); input.val(input.attr('placeholder')); }}).blur();	$('[placeholder]').parents('form').submit(function() {$(this).find('[placeholder]').each(function() {var input = $(this); if (input.val() == input.attr('placeholder')) { input.val(''); }})})}	
+    if(!Modernizr.input.placeholder){ $('[placeholder]').focus(function() { var input = $(this); if (input.val() == input.attr('placeholder')) { input.val(''); input.removeClass('placeholder'); } }).blur(function() { var input = $(this); if (input.val() == '' || input.val() == input.attr('placeholder')) { input.addClass('placeholder'); input.val(input.attr('placeholder')); }}).blur(); $('[placeholder]').parents('form').submit(function() {$(this).find('[placeholder]').each(function() {var input = $(this); if (input.val() == input.attr('placeholder')) { input.val(''); }})})} 
     $('#menu_trigger').bind('click',function(){$('#mainnav').toggleClass('active');});
-	$('#menu_trigger_outside').bind('click',function(){$('#mainnav').toggleClass('active');});
-	$('html').click(function(){$('.triangle').hide(); $('.cart').hide(); });
-	$('.cart_trigger ').click(function(event){event.preventDefault();$('.triangle').slideToggle('fast');$('.cart').slideToggle('fast');event.stopPropagation();});
+    $('#menu_trigger_outside').bind('click',function(){$('#mainnav').toggleClass('active');});
+    $('html').click(function(){$('.triangle').hide(); $('.cart').hide(); });
+    $('.cart_trigger ').click(function(event){event.preventDefault();$('.triangle').slideToggle('fast');$('.cart').slideToggle('fast');event.stopPropagation();});
     {% if settings.twitter_widget_visible == true %}
     $.getJSON('http://api.twitter.com/1/statuses/user_timeline.json?callback=?&screen_name={{settings.twitter_widget_username}}&count={{settings.twitter_widget_tweet_limit}}',function(data){
         var tweets = data;
